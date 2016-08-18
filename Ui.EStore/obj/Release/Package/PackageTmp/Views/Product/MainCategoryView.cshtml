@@ -1,0 +1,175 @@
+﻿@using Domain.EStore
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@{
+    ViewBag.Title = "MainCategoryView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-container">
+    <div class="page-container-wrap">
+        @section SeoRender{
+            <title> هنداوى :@ViewBag.MainCategories.Name </title>
+
+
+
+        }
+
+        <div id="breadcrumb" style="padding: 12px 10px 8px 10px;" style="padding: 12px 10px 8px 10px;">
+            <span></span>
+            <a href="/Home">@CultureHelper.GetUserLanguageValue("عام", "الصفحة الرئيسية")</a><span class="span"></span> @{<a href="/Product/">@CultureHelper.GetUserLanguageValue("عام", "المنتجات")</a>}
+        </div>
+        <div class="page-style">
+
+            <h2 class="socend-title">@CultureHelper.GetUserLanguageValue("عام", "فئات فرعية") </h2>
+            <div class="Categories-style">
+                <ul>
+                    @{
+                        List<Category> categories = ProductController.GetCategoriesByMainCategoryId(@ViewBag.MainCategories.Id);
+                        foreach (var category in categories)
+                        {
+                            if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                            {
+                                <li>
+
+                                    <a href="/Product/CategoryProduct/@category.Id-@category.Name.ClearString()">
+                                        <img src="@category.ImageUrl" />
+                                    </a>
+                                    <a href="/Product/CategoryProduct/@category.Id-@category.Name.ClearString()">
+                                        @category.Name
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+
+                                    <a href="/Product/CategoryProduct/@category.Id-@category.NameEn.ClearString()">
+                                        <img src="@category.ImageUrl" />
+                                    </a>
+                                    <a href="/Product/CategoryProduct/@category.Id-@category.NameEn.ClearString()">
+                                        @category.NameEn
+                                    </a>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+            <h2 class="third-title">@CultureHelper.GetUserLanguageValue("عام", "المنتجات")</h2>
+            <div class="Categories-style">
+                <ul>
+                    @{
+
+                        List<Product> Products = ProductController.GetProductsByMainCategoryId(ViewBag.MainCategories.Id);
+                        foreach (var product in Products)
+                        {
+                            if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                            {
+
+                                <li>
+                                    <a href="/Product/ProductView/@product.Id-@product.Name.ClearString()">
+                                        @{
+
+
+                                            var priceafter = product.SalePrice;
+                                            var priceaftrerPercent = product.DiscountPrice;
+                                            if (product.DiscountPrice > 0)
+                                            {
+                                                if (product.DiscountPercent)
+                                                {
+
+                                                    priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+
+                                                }
+                                                else
+                                                {
+
+                                                    priceaftrerPercent = 100 - (((product.SalePrice - priceaftrerPercent)/product.SalePrice)*100);
+
+                                                    priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+                                                }
+                                            }
+                                        }
+                                        <div class="img-container">
+
+                                            @{
+                                                if (priceaftrerPercent > 0)
+                                                {
+                                                    <span class="percent">
+                                                        @priceaftrerPercent.ToString("#.##")%
+                                                    </span>
+                                                }
+                                            }
+
+
+                                            <img src="@product.ImageUrl" alt="@product.Berif" />
+                                            <h3>
+                                                @product.Name
+                                            </h3>
+                                            <p>سعر المنتج : @priceafter.ToString("#.##") جنيه</p>
+
+                                        </div>
+
+
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+   <li>
+                                    <a href="/Product/ProductView/@product.Id-@product.NameEn.ClearString()">
+                                        @{
+
+
+                                            var priceafter = product.SalePrice;
+                                            var priceaftrerPercent = product.DiscountPrice;
+                                            if (product.DiscountPrice > 0)
+                                            {
+                                                if (product.DiscountPercent)
+                                                {
+
+                                                    priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+
+                                                }
+                                                else
+                                                {
+
+                                                    priceaftrerPercent = 100 - (((product.SalePrice - priceaftrerPercent)/product.SalePrice)*100);
+
+                                                    priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+                                                }
+                                            }
+                                        }
+                                        <div class="img-container">
+
+                                            @{
+                                                if (priceaftrerPercent > 0)
+                                                {
+                                                    <span class="percent">
+                                                        @priceaftrerPercent.ToString("#.##")%
+                                                    </span>
+                                                }
+                                            }
+
+
+                                            <img src="@product.ImageUrl" alt="@product.Berif" />
+                                            <h3>
+                                                @product.NameEn
+                                            </h3>
+                                            <p>@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج") : @priceafter.ToString("#.##") @CultureHelper.GetUserLanguageValue("عام", "جنيه")</p>
+
+                                        </div>
+
+
+                                    </a>
+                                </li>
+                            }
+
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+﻿CREATE TABLE [dbo].[CartDetails] (
+    [Id]        INT             IDENTITY (1, 1) NOT NULL,
+    [CartId]    INT             NOT NULL,
+    [ProductId] INT             NOT NULL,
+    [Price]     DECIMAL (19, 2) NOT NULL,
+    [Quntity]   FLOAT (53)      NOT NULL,
+    [Total]     DECIMAL (19, 2) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_CartDetails_Carts] FOREIGN KEY ([CartId]) REFERENCES [dbo].[Carts] ([Id])
+);
+GO
+
+CREATE TABLE [dbo].[Carts] (
+    [Id]            INT      IDENTITY (1, 1) NOT NULL,
+    [CustomerId]    INT      NOT NULL,
+    [Time]          DATETIME NOT NULL,
+    [DeliveryId]    INT      NULL,
+    [Status]        BIT      NULL,
+    [DeliveryState] BIT      NULL,
+    [Total]         MONEY    NOT NULL,
+    [GetwayId]      INT      NULL,
+    [IsShow]        BIT      DEFAULT ((0)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Carts_deliveries] FOREIGN KEY ([DeliveryId]) REFERENCES [dbo].[deliveries] ([Id]),
+    CONSTRAINT [FK_Carts_GetWaies] FOREIGN KEY ([GetwayId]) REFERENCES [dbo].[GetWays] ([Id]),
+    CONSTRAINT [FK_Carts_UserProfile] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[UserProfile] ([UserId])
+);
+GO
+
+
+CREATE TABLE [dbo].[Customers] (
+    [Id]       INT            IDENTITY (1, 1) NOT NULL,
+    [UserName] NVARCHAR (250) NOT NULL,
+    [Password] NVARCHAR (250) NOT NULL,
+    [Email]    NVARCHAR (250) NOT NULL,
+    [IsActive] BIT            NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+GO
+
+CREATE TABLE [dbo].[deliveries] (
+    [Id]   INT             IDENTITY (1, 1) NOT NULL,
+    [Name] NVARCHAR (250)  NOT NULL,
+    [Cost] DECIMAL (19, 4) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+GO
+
+CREATE TABLE [dbo].[UserProfile] (
+    [UserId]   INT             IDENTITY (1, 1) NOT NULL,
+    [UserName] NVARCHAR (56)   NOT NULL,
+    [Email]    NVARCHAR (250)  NULL,
+    [Phone]    NVARCHAR (50)   NULL,
+    [Address]  NVARCHAR (4000) NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC),
+    UNIQUE NONCLUSTERED ([UserName] ASC)
+);
+GO
+
+CREATE TABLE [dbo].[webpages_Membership] (
+    [UserId]                                  INT            NOT NULL,
+    [CreateDate]                              DATETIME       NULL,
+    [ConfirmationToken]                       NVARCHAR (128) NULL,
+    [IsConfirmed]                             BIT            DEFAULT ((0)) NULL,
+    [LastPasswordFailureDate]                 DATETIME       NULL,
+    [PasswordFailuresSinceLastSuccess]        INT            DEFAULT ((0)) NOT NULL,
+    [Password]                                NVARCHAR (128) NOT NULL,
+    [PasswordChangedDate]                     DATETIME       NULL,
+    [PasswordSalt]                            NVARCHAR (128) NOT NULL,
+    [PasswordVerificationToken]               NVARCHAR (128) NULL,
+    [PasswordVerificationTokenExpirationDate] DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
+GO
+
+
+CREATE TABLE [dbo].[webpages_OAuthMembership] (
+    [Provider]       NVARCHAR (30)  NOT NULL,
+    [ProviderUserId] NVARCHAR (100) NOT NULL,
+    [UserId]         INT            NOT NULL,
+    PRIMARY KEY CLUSTERED ([Provider] ASC, [ProviderUserId] ASC)
+);
+GO
+CREATE TABLE [dbo].[webpages_Roles] (
+    [RoleId]   INT            IDENTITY (1, 1) NOT NULL,
+    [RoleName] NVARCHAR (256) NOT NULL,
+    PRIMARY KEY CLUSTERED ([RoleId] ASC),
+    UNIQUE NONCLUSTERED ([RoleName] ASC)
+);
+GO
+CREATE TABLE [dbo].[webpages_UsersInRoles] (
+    [UserId] INT NOT NULL,
+    [RoleId] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC, [RoleId] ASC),
+    CONSTRAINT [fk_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[webpages_Roles] ([RoleId]),
+    CONSTRAINT [fk_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[UserProfile] ([UserId])
+);
+GO
+
+Alter TABLE [dbo].[Products] (
+   
+    [BestSeller]       BIT             DEFAULT ((0)) NOT NULL,
+ 
+);
+GO
+
+
+

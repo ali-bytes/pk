@@ -1,0 +1,30 @@
+﻿@using Ui.EStore.Helpers
+
+@{
+    ViewBag.Title = "Error404";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section SeoRender
+    {
+    <title> هنداوي</title>
+}
+<div class="text-center">
+    <br />
+    <style>
+        .pagebotton a {
+            color: #ffffff;
+        }
+    </style>
+    <br />
+    <h2 style="font-weight:bold"> @CultureHelper.GetUserLanguageValue("عام", "هنداوي")</h2>
+    <br />
+    <div class="pagebotton" style="color:#ffffff !important;width:45%;margin: 10px auto;text-align:center;padding:5px 20px;background: #1e90ff;border:1px solid #008080;"> @Html.ActionLink("للرجوع  الى الصفحة الرئيسية", "Index")</div>
+    <br />
+    <div dir="ltr">
+        <span style="background: none repeat scroll 0 0 #333333; color: #FFFFFF; display: inline-block; font-size: 120px; line-height: normal; margin-left: 7px; padding: 10px 30px;">4</span>
+        <span style="background: none repeat scroll 0 0 #333333; color: #FFFFFF; display: inline-block; font-size: 120px; line-height: normal; margin-left: 7px; padding: 10px 30px;">0</span>
+        <span style="background: none repeat scroll 0 0 #333333; color: #FFFFFF; display: inline-block; font-size: 120px; line-height: normal; margin-left: 7px; padding: 10px 30px;">4</span>
+    </div>
+    <br />
+</div>

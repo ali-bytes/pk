@@ -1,0 +1,193 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>تعديل فرع  </title>
+}
+<style>
+    #branchCtrl .form-group {
+        float: none;
+        width:100%;
+    }
+    #branchCtrl .btn {
+        width: 120px;
+        height: 35px !important;
+        line-height:20px;
+        background: #1e90ff;
+        color: #fff;
+    }
+    #branchCtrl .form-group input[type="text"] {
+        width: 300px;
+        height: 35px;
+        
+    }
+    .col-sm-4 {
+        width: 100%;
+    }
+    #branchCtrl .form-group label {
+        margin-bottom: 20px;
+    }
+
+</style>
+
+<div class="panel panel-primary" id="branchCtrl" ng-app="BranchApp" ng-controller="branchCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل  فرع</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="branchfrm">
+
+                <div class="form-group">
+                    <label for="ddl_Branch" class="col-sm-3 control-label">الفروع </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Branch" class="form-control" ng-model="selectedBranch" ng-change="GetBranch()" ng-options="i.Name for i in Branchs"></select>
+
+                    </div>
+                </div>
+                <hr style="border-width: 5px;" />
+
+                <div id="div_userDetails" ng-show="Id>0">
+                    <div class="form-group">
+                        <label for="ImageUrl" class="col-sm-3 control-label">الصورة</label>
+                        <div class="col-sm-9">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="file" id="ImageUrl" />
+                                </div>
+                                <div class="col-md-3">
+                                    <input class="btn btn-default " type="button" id="btnUpload" value=" رفـع " />
+                                </div>
+                                <div class="col-md-3">
+                                    <img style="width: 80px" ng-src={{ImageUrl}} id="imgUserImage" class="img-rounded" alt="Upload Image">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="txt_Name" class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Name" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم الفرع ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_NameEn" class="col-sm-3 control-label">الاسم بالانجليزية</label>
+                        <div class="col-sm-4">
+                            <input id="txt_NameEn" ng-model="NameEn" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم الفرع ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddl_Governate" class="col-sm-3 control-label">المحافظات  </label>
+                        <div class="col-sm-9">
+                            <select id="ddl_Governate" class="form-control" ng-change="GetGovernateCities()" ng-model="selectedGovernate" ng-options="i.Name for i in Governates"></select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddl_Cities" class="col-sm-3 control-label">المدن  </label>
+                        <div class="col-sm-9">
+                            <select id="ddl_Cities" class="form-control" ng-model="selectedCity" ng-options="i.Name for i in Cities"></select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_address" class="col-sm-3 control-label">العنوان</label>
+                        <div class="col-sm-4">
+                            <input id="txt_address" ng-model="Address" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="العنوان ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_addressEn" class="col-sm-3 control-label">العنوان بالانجليزية</label>
+                        <div class="col-sm-4">
+                            <input id="txt_addressEn" ng-model="AddressEn" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="العنوان ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_Phone" class="col-sm-3 control-label">التليفون</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Phone" ng-model="Phone" maxlength="30" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="التليفون ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_Mobile" class="col-sm-3 control-label">الموبايل</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Mobile" ng-model="Mobile" maxlength="30" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="الموبايل ">
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label for="txt_Details" class="col-sm-3 control-label">التفاصيل</label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_Details" dir="rtl" data-validate="required" data-validate-type="required" ng-model="Details" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_DetailsEn" class="col-sm-3 control-label">التفاصيل بالانجليزية</label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_DetailsEn" dir="rtl" data-validate="required" data-validate-type="required" ng-model="DetailsEn" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                            <button type="submit" id="btnDelete" ng-show="CanDelete" ng-click="Delete()" class="btn btn-default">حذف</button>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/BranchCtrl.js"></script>
+
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $('#txt_Details').ckeditor();
+
+
+            angular.element('#branchCtrl').scope().GetAllCities();
+            angular.element('#branchCtrl').scope().GetAllGovernates();
+            angular.element('#branchCtrl').scope().GetAllBranches();
+
+
+            $("#btnUpload").click(function (evt) {
+
+                UploadScript.uploadFile(evt, 'ImageUrl', '#imgUserImage');
+            });
+        });
+    </script>
+
+</div>

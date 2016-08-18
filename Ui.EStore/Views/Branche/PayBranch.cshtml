@@ -1,0 +1,173 @@
+﻿@using Ui.EStore.Helpers
+@{
+    ViewBag.Title = "PayBranch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-container">
+    <div class="page-container-wrap">
+        @section SeoRender{
+            <title> هنداوى : @ViewBag.title </title>
+        }
+      
+        <div id="breadcrumb" style="padding: 12px 10px 8px 10px;" style="padding: 12px 10px 8px 10px;">
+            <span></span>@*/@ViewBag.product.MainCategoryId-@ViewBag.MainCategory*@
+            <a href="/Home">@CultureHelper.GetUserLanguageValue("عام", "الصفحة الرئيسية")  </a><span class="span"></span><a href="/branche/PayBranch"> @CultureHelper.GetUserLanguageValue("عام", "الفروع")</a>
+
+        </div>
+
+        <p style="margin:10px 0px;">@CultureHelper.GetUserLanguageValue("عام", "يمكنك البحث بدلالة المحافظة او المدينة")</p>
+        <hr />
+      
+
+        <div id="branchCtrl" ng-app="BranchApp" ng-controller="branchCtrl">
+
+
+
+            <div class="form-group">
+              
+                    <label for="ddl_Governate" class="col-sm-3 control-label">@CultureHelper.GetUserLanguageValue("عام", "المحافظات")  </label>
+
+                    @*    <select id="ddl_Governate" class="form-control" ng-change="GetGovernateCities()" ng-model="selectedGovernate" ng-options="i.Name for i in Governates"></select>*@
+                    <input id="ddl_Governate" ng-model="search.GovernateName" maxlength="255" dir="rtl" type="text" class="form-control">
+              
+            </div>
+
+            <div class="form-group">
+               
+             
+                    <label for="ddl_Cities" class="col-sm-3 control-label">@CultureHelper.GetUserLanguageValue("عام", "المدن")  </label>
+                    @*<select id="ddl_Cities" class="form-control" ng-model="selectedCity" ng-change="SelectCities()" ng-options="i.Name for i in Cities"></select>*@
+                    <input id="ddl_Cities" ng-model="search.CityName" maxlength="255" dir="rtl" type="text" class="form-control">
+
+              
+            </div>
+
+            <div>
+
+                <div id="items-table" class="table table-bordered table-hover table-condensed table-striped white">
+@{
+    if (CultureHelper.GetLang() == Enums.Lang.Ar)
+    {
+        <div id="table-header" class="table-row">
+            @*<div class="cell">
+                            المسلسل
+                        </div>*@
+            <div class="cell name">
+                الاسم
+            </div>
+            <div class="cell">
+                المحافظة
+            </div>
+            <div class="cell">
+                المدينة
+            </div>
+
+            <div class="cell address">
+                العنوان
+            </div>
+            <div class="cell">
+                الموبايل
+            </div>
+        </div>
+
+
+        <div class="table-row" ng-repeat="i in Branchs  | filter:search">
+            @*<div class="cell">
+                            {{$index+1}}
+                        </div>*@
+            <div class="cell name">
+                {{i.Name}}
+            </div>
+            <div class="cell">
+                <span></span>
+                {{i.GovernateName}}
+            </div>
+            <div class="cell">
+
+                {{i.CityName}}
+            </div>
+            <div class="cell address">
+                {{i.Address }}
+            </div>
+            <div class="cell">
+                {{i.Mobile }}
+            </div>
+
+        </div>
+
+    }
+    else
+    {
+          <div id="table-header" class="table-row">
+            @*<div class="cell">
+                            المسلسل
+                        </div>*@
+            <div class="cell name">
+                Name
+            </div>
+            <div class="cell">
+                Governate
+            </div>
+            <div class="cell">
+                City
+            </div>
+
+            <div class="cell address">
+                Address
+            </div>
+            <div class="cell">
+                Phone
+            </div>
+        </div>
+
+
+        <div class="table-row" ng-repeat="i in Branchs  | filter:search">
+            @*<div class="cell">
+                            {{$index+1}}
+                        </div>*@
+            <div class="cell name">
+                {{i.NameEn}}
+            </div>
+            <div class="cell">
+                <span></span>
+                {{i.GovernateNameEn}}
+            </div>
+            <div class="cell">
+
+                {{i.CityNameEn}}
+            </div>
+            <div class="cell address">
+                {{i.AddressEn }}
+            </div>
+            <div class="cell">
+                {{i.Mobile }}
+            </div>
+
+        </div>
+    }
+}
+
+    </
+    div>
+                <div style="clear: both;"></div>
+                <br />
+               
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Controllers/BranchCtrl.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+         
+
+        angular.element('#branchCtrl').scope().GetAllCities();
+        angular.element('#branchCtrl').scope().GetAllGovernates();
+        angular.element('#branchCtrl').scope().GetFullBranchs();
+
+
+       
+    });
+</script>

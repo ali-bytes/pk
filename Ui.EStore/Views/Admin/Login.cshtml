@@ -1,0 +1,73 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html   >
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/bundles/AdminMainCSS")
+    @Scripts.Render("~/bundles/AdminMainJs")
+
+
+
+</head>
+<body>
+    <div class="row">
+        <div class="center-block" style="width: 500px;">
+
+            <div class="MiddleHeight">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">تسجيل الدخول</div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" id="formLogin" role="form">
+                            <div class="form-group">
+                                <label for="txt_SYS_UserEmailAddress" class="col-sm-3 control-label">البريد الالكترونى</label>
+                                <div class="col-sm-9">
+                                    <input id="txt_SYS_UserEmailAddress" maxlength="255" type="email" data-validate="required" data-validate-type="required" class="form-control" placeholder=" ">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_SYS_UserPassword" class="col-sm-3 control-label">كلمة المرور</label>
+                                <div class="col-sm-9">
+                                    <input id="txt_SYS_UserPassword" maxlength="255" type="password" data-validate="required" data-validate-type="required" class="form-control"  placeholder=" ">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="submit" id="btnLogin" class="btn btn-default">دخول</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="Scripts">
+        <script src="~/Scripts/Controllers/adminScript.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#btnLogin").click(function (evt) {
+                    evt.preventDefault();
+                    validateScript.validate($("#formLogin"));
+                    if ($("#divWarning").hasClass("invisible"))
+                        adminScript.validateUser();
+
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

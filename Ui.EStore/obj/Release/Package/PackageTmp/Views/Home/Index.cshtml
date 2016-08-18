@@ -1,0 +1,689 @@
+﻿@using Domain.EStore
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="center" style="width:100%;margin:0px auto;">
+    <div class="box1" id="slideshow" ng-controller="sliderCtrl">
+
+
+        <div class="container">
+
+            <div id="da-slider" class="da-slider">
+                @{
+
+                    var images = HomeController.GetsSliderImages();
+                    foreach (var sliderImage in images)
+                    {
+
+                        <div class="da-slide">
+                            @{
+                        if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                        {
+                            <h2>
+                                @sliderImage.Name
+                            </h2>
+                                <p> @Html.Raw(@sliderImage.Berif)</p>
+                                <p class="slide-prise">@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج")  : @sliderImage.SalePrice.ToString("#.##") @CultureHelper.GetUserLanguageValue("عام", "جنيه")</p>
+                                <a href="/Home/OfferDetails/@sliderImage.Id-@sliderImage.Name" class="da-link">@CultureHelper.GetUserLanguageValue("عام", "المزيد")</a>
+                                <div class="da-img">
+                                    <img ng-src=@sliderImage.ImageUrl />
+
+                                </div>
+                        }
+                        else
+                        {
+                            <h2>
+                                @sliderImage.NameEn
+                            </h2>
+                                <p> @Html.Raw(@sliderImage.BerifEn)</p>
+                                <p class="slide-prise">@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج")  : @sliderImage.SalePrice.ToString("#.##") @CultureHelper.GetUserLanguageValue("عام", "جنيه")</p>
+                                <a href="/Home/OfferDetails/@sliderImage.Id-@sliderImage.NameEn" class="da-link">@CultureHelper.GetUserLanguageValue("عام", "المزيد")</a>
+                                <div class="da-img">
+                                    <img ng-src=@sliderImage.ImageUrl />
+
+                                </div>
+                        }
+                            }
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    }
+                }
+
+                <nav class="da-arrows">
+                    <span class="da-arrows-prev"></span>
+                    <span class="da-arrows-next"></span>
+                </nav>
+            </div>
+        </div>
+
+        <div style="clear:both;"></div>
+    </div><!--slideshow-->
+
+
+
+
+</div><!--center-->
+<div class="center" id="company">
+    <div class="box1" id="aboutUsCtrl" ng-controller="aboutUsCtrl" style="width: 100%;overflow: hidden;">
+
+        @{
+            if (CultureHelper.GetLang() == Enums.Lang.Ar)
+            {
+                <img ng-src={{ImageUrl}} />
+                <div id="company-content">
+                    <h3>{{title}}</h3>
+                    <p ng-bind-html="berif">
+                    </p>
+                    <a href="/AboutUs/">
+
+                        @CultureHelper.GetUserLanguageValue("عام", "المزيد")
+
+                    </a>
+
+                </div>
+            }
+            else
+            {
+                <img ng-src={{ImageUrl}} />
+                <div id="company-content">
+                    <h3>{{titleEn}}</h3>
+                    <p ng-bind-html="berifEn">
+                    </p>
+                    <a href="/AboutUs/">
+
+                        @CultureHelper.GetUserLanguageValue("عام", "المزيد")
+
+                    </a>
+
+                </div>
+            }
+        }
+
+
+    </div><!--box-->
+
+</div><!--center-->
+
+
+@*<img id="shop" src="~/Images/shop-icon.png" />*@
+
+<div id="tabs-container">
+   
+    <div id="tabs">
+        
+        <h3 id="new-products-title"><span><img style="margin-top: -15px;" class="shop" src="~/Images/shop-icon.png" /></span>@CultureHelper.GetUserLanguageValue("عام", "احدث المنتجات")  </h3>
+      
+
+
+        @{
+
+            var allcat = ProductController.GetAllCategories2();
+
+            foreach (var cat in allcat)
+            {
+                <div class="box">
+
+
+                    @{ var catName = CultureHelper.GetLang() == Enums.Lang.Ar ? @cat.Name : @cat.NameEn; }
+
+                    <div class="title"><a href="">@catName  </a></div>
+
+                    <div class="content">
+
+                        @{
+                            var getpro = ProductController.GetProductsByMainCategoryId(cat.Id);
+                            if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                            {
+
+                                foreach (var product in getpro)
+                                {
+
+                                    var id = product.Id;
+                                    var name = product.Name;
+                                    var iurl = product.ImageUrl;
+                                    var price = product.SalePrice.ToString("#.##");
+
+
+                                    <div class="box5">
+                                        <a href="/Product/ProductView/@id -@name.ClearString() ">
+
+
+                                            <div class="box5-details">
+                                                <img src="@iurl" />
+
+
+
+                                            </div>
+                                            <div class="bar">
+                                                <h3>@name</h3>
+                                                <h4>@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج")  : @price @CultureHelper.GetUserLanguageValue("عام", "جنيه")</h4>
+                                                <a><span style="display: none;"></span></a>
+                                            </div>
+                                        </a>
+
+                                    </div>
+
+                                }
+                            }
+                            else
+                            {
+
+                                foreach (var product in getpro)
+                                {
+
+                                    var id = product.Id;
+                                    var name = product.NameEn;
+                                    var iurl = product.ImageUrl;
+                                    var price = product.SalePrice.ToString("#.##");
+
+
+                                    <div class="box5">
+                                        <a href="/Product/ProductView/@id -@name.ClearString() ">
+
+
+                                            <div class="box5-details">
+                                                <img src="@iurl" />
+
+
+
+                                            </div>
+                                            <div class="bar">
+                                                <h3>@name</h3>
+                                                <h4>@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج")  : @price @CultureHelper.GetUserLanguageValue("عام", "جنيه")</h4>
+                                                <a><span style="display: none;"></span></a>
+                                            </div>
+                                        </a>
+
+                                    </div>
+
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+
+            }
+
+
+        }
+
+
+
+    </div><!--tabs-->
+</div><!--tabs-container-->
+
+
+
+
+<div id="MainSlider" ng-controller="productCtrl">
+    <h2 class="index-title"><span><img class="shop" src="~/Images/shop-icon.png" /></span>@CultureHelper.GetUserLanguageValue("عام", "منتجات مميزة") </h2>
+    <div class="center" id="slider">
+
+        <ul>
+            @{
+
+                var Products = ProductController.HomeProducts();
+                foreach (var product in Products)
+                {
+                    <li class="box4">
+
+                        @{
+
+
+                    var priceafter = product.SalePrice;
+                    var priceaftrerPercent = product.DiscountPrice;
+                    if (product.DiscountPrice > 0)
+                    {
+                        if (product.DiscountPercent)
+                        {
+
+                            priceafter = product.SalePrice - (priceaftrerPercent * (product.SalePrice) / 100);
+
+                        }
+                        else
+                        {
+
+
+                            priceaftrerPercent = 100 - (((ViewBag.product.SalePrice - priceaftrerPercent) / ViewBag.product.SalePrice) * 100);
+
+                            priceafter = ViewBag.product.SalePrice - (priceaftrerPercent * (ViewBag.product.SalePrice) / 100);
+                        }
+                    }
+                        }
+                        @{
+                    if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                    {
+
+                        <div class="image-container">
+                            @{
+
+
+
+
+
+                        if (priceaftrerPercent > 0)
+                        {
+                            <span class="percent">
+                                @priceaftrerPercent.ToString("#.##")%
+                            </span>
+
+
+
+
+                                <img src="@product.ImageUrl" alt="@product.Berif" />
+                        }
+                        else
+                        {
+                            <img src="@product.ImageUrl" alt="@product.Berif" />
+                        }
+
+                            }
+
+                        </div>
+
+                            <h3>
+                                @product.Name
+                            </h3>
+                            <p>
+                                <span>
+                                    @CultureHelper.GetUserLanguageValue("عام", "سعر المنتج") :
+                                </span> @priceafter.ToString("#.##") <span>
+                                    @CultureHelper.GetUserLanguageValue("عام", "جنيه")
+                                </span>
+                            </p>
+                            <a href="/Product/ProductView/@product.Id-@product.Name.ClearString()"> @CultureHelper.GetUserLanguageValue("عام", "المزيد") </a>
+
+                    }
+                    else
+                    {
+                        <div class="image-container">
+                            @{
+
+                        if (priceaftrerPercent > 0)
+                        {
+                            <span class="percent">
+                                @priceaftrerPercent.ToString("#.##")%
+                            </span>
+
+                                <img src="@product.ImageUrl" alt="@product.BerifEn" />
+                        }
+                        else
+                        {
+                            <img src="@product.ImageUrl" alt="@product.BerifEn" />
+                        }
+
+                            }
+
+                        </div>
+
+                            <h3>
+                                @product.NameEn
+                            </h3>
+                            <p>
+                                <span>
+                                    @CultureHelper.GetUserLanguageValue("عام", "سعر المنتج") :
+                                </span> @priceafter.ToString("#.##") <span>
+                                    @CultureHelper.GetUserLanguageValue("عام", "جنيه")
+                                </span>
+                            </p>
+                            <a href="/Product/ProductView/@product.Id-@product.NameEn.ClearString()"> @CultureHelper.GetUserLanguageValue("عام", "المزيد") </a>
+
+                    }
+                        }
+                    </li>
+
+                }
+            }
+
+
+            <!--box-->
+
+        </ul>
+
+    </div><!--center-->
+
+
+</div><!-- #slider1 -->
+
+
+<h2 class="index-title"><span><img class="shop" src="~/Images/shop-icon.png" /></span>@CultureHelper.GetUserLanguageValue("عام", "الاكثر مبيعا")</h2>
+<div id="page-slider-container">
+
+    <div id="page-slider">
+
+        <div id="prev">
+
+            
+        </div><!--arrow-->
+        <div id="slide-image">
+            <ul id="ul">
+                @{
+                    List<Product> products = ProductController.BestSellerProducts(); ;
+
+
+                    foreach (var product in products)
+                    {
+                        <li style="margin-left: 0.9%">
+                            @{
+
+                        var priceafter = product.SalePrice;
+                        var priceaftrerPercent = product.DiscountPrice;
+                        if (product.DiscountPrice > 0)
+                        {
+                            if (product.DiscountPercent)
+                            {
+
+                                priceafter = product.SalePrice - (priceaftrerPercent * (product.SalePrice) / 100);
+
+                            }
+                            else
+                            {
+
+                                priceaftrerPercent = 100 - (((product.SalePrice - priceaftrerPercent) / product.SalePrice) * 100);
+
+                                priceafter = product.SalePrice - (priceaftrerPercent * (product.SalePrice) / 100);
+                            }
+                        }
+
+                        if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                        {
+
+
+
+                            <a href="/Product/ProductView/@product.Id-@product.Name.ClearString()">
+                                <h3>@product.Name</h3>
+
+
+                                @{
+
+
+
+
+
+
+
+                            if (priceaftrerPercent > 0)
+                            {
+                                <span class="percent">
+
+                                    @priceaftrerPercent.ToString("#.##")%
+
+                                </span>
+
+                            }
+
+
+                            <img src="@product.ImageUrl" alt="@product.Berif" />
+                                    <p>@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج") : @priceafter.ToString("#.##") @CultureHelper.GetUserLanguageValue("عام", "جنيه") </p>
+
+
+                                }
+
+
+                            </a>
+                        }
+                        else
+                        {
+
+                            <a href="/Product/ProductView/@product.Id-@product.NameEn.ClearString()">
+                                <h3>@product.NameEn</h3>
+
+
+                                @{
+
+
+
+
+
+
+
+                            if (priceaftrerPercent > 0)
+                            {
+                                <span class="percent">
+
+                                    @priceaftrerPercent.ToString("#.##")%
+
+                                </span>
+
+                            }
+
+
+                            <img src="@product.ImageUrl" alt="@product.BerifEn" />
+                                    <p>@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج") : @priceafter.ToString("#.##") @CultureHelper.GetUserLanguageValue("عام", "جنيه") </p>
+
+
+                                }
+
+
+                            </a>
+                        }
+                            }
+
+                        </li>
+
+                    }
+
+                }
+
+
+            </ul>
+        </div><!--slide-image-->
+        <div id="next">
+            
+        </div><!--arrow-->
+
+    </div>
+</div>
+
+
+
+
+
+
+<div class="center" id="boxs">
+    <div class="box3">
+        <h3>
+            @CultureHelper.GetUserLanguageValue("عام", " فيس بوك")
+        </h3>
+
+        <div style="clear: both;text-align: left;padding-left: 5%;">
+            <div class="fb-like-box" data-href="https://www.facebook.com/pinkyturkishfashion" data-width="100%" data-height="200" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+        </div>
+
+    </div><!--box-->
+    <div class="box3">
+        <h3>
+            @CultureHelper.GetUserLanguageValue("عام", "تواصل معنا")
+        </h3>
+        <ul>
+            @{
+                var contactus = ContactUsController.AboutUsDetails();
+
+                if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                {
+                    @Html.Raw(contactus.Berif)
+                }
+                else
+                {
+                    @Html.Raw(contactus.BerifEn)
+                }
+
+            }
+            @*<li>
+                    <span></span><p>المنوفية - شبين الكوم -  بجوار مجمع الكليات</p>
+                </li>
+                <li>
+                    <span></span> <p>01003424433444  -  01003424433444 </p>
+                </li>
+                <li>
+                    <span></span><p>company@gmail.com </p>
+                </li>*@
+        </ul>
+    </div><!--box-->
+    <div class="box3" id="emailCtrl" ng-app="EmailApp" ng-controller="emailCtrl">
+        <h3>
+            @CultureHelper.GetUserLanguageValue("عام", "القائمة البريدية")
+        </h3>
+        <p>
+            <span></span>@CultureHelper.GetUserLanguageValue("عام", "اشترك فى القائمة البريدية")
+
+        </p>
+        <form role="form" id="EmailFrm">
+
+            @*<input type="text"  data-validate="required" data-validate-type="email" />
+            *@
+
+            <div class="form-group">
+
+                <span></span>
+                <div class="col-sm-4">
+                    <input id="txt_Title" name="subcribe" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="email" class="form-control" placeholder="البريد الالكترونى ">
+                </div>
+            </div>
+
+            <input type="submit" id="btnSave" value="@CultureHelper.GetUserLanguageValue("عام", "أشتراك")" ng-click="Save()" />
+            <label>{{Result}}</label>
+            <div>
+                <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+            </div>
+        </form>
+
+    </div><!--box-->
+
+</div><!--center-->
+
+<script src="~/Scripts/Controllers/AboutUsCtrl.js"></script>
+<script src="~/Scripts/Controllers/SliderImageCtrl.js"></script>
+<script src="~/Scripts/Controllers/ProductCtrl.js"></script>
+<script src="~/Scripts/Controllers/EmailCtrl.js"></script>
+<script src="~/Scripts/jquery.cslider.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#slideshow-content ul li:gt(0)").hide();
+        setInterval(function () {
+            $('#slideshow-content ul li:first').fadeOut(1000)
+               .next()
+               .fadeIn(1000)
+               .end()
+               .appendTo('#slideshow-content ul');
+        },
+      4000);
+
+        //$(".right").click(function(){
+
+        //    $('#slideshow-content ul li:first').fadeOut(1000)
+        //         .next()
+        //         .fadeIn(1000)
+        //         .end()
+        //         .appendTo('#slideshow-content ul');
+
+
+        //      });
+
+
+    });
+
+</script>
+<script type="text/javascript">
+    //var moduleA = angular.module("MyModuleA", []);
+    //moduleA.controller("MyControllerA", function ($scope) {
+    //    $scope.name = "Bob A";
+    //});
+
+    //var moduleB = angular.module("MyModuleB", []);
+    //moduleB.controller("MyControllerB", function ($scope) {
+    //    $scope.name = "Steve B";
+    //});
+
+    angular.element(document).ready(function () {
+
+
+        angular.bootstrap(document.getElementById("aboutUsCtrl"), ["aboutUs"]);
+        angular.bootstrap(document.getElementById("slideshow"), ["SliderApp"]);
+        angular.element('#slideshow').scope().GetSliderImage();
+        angular.bootstrap(document.getElementById("MainSlider"), ["productApp"]);
+        angular.element('#MainSlider').scope().GetAllMainCategories();
+        angular.element('#MainSlider').scope().HomeProducts();
+        angular.element('#MainSlider').scope().GetMainCategoryProducts();
+        //  angular.bootstrap(document.getElementById("emailCtrl"), ["EmailApp"]);
+
+    });
+
+    //$(document).ready(function () {
+
+    //    angular.bootstrap(document.getElementById("sliderCtrl"), ["SliderApp"]).scope().GetAllSliders();
+    //});
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+
+    });
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".content").css("right", "-100%");
+        $(".title:first").next().css("right", "0px");
+
+        $(".title").click(function () {
+
+            if ($(this).next().css("right", "-100%")) {
+
+                $(".title").next().animate({ right: "-100%" });
+
+                $(this).next().animate({ right: "0%" });
+            }
+            return false;
+        });
+    });
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var index = 0;
+        var num = $("#slide-image").width() / 5.7;
+        $("#slide-image ul li").width(num);
+
+        var margin = parseFloat($("#slide-image ul li").css("marginLeft")) + parseFloat($("#slide-image ul li").css("marginRight")) + parseFloat(num * 0.11);
+        var animate = num + margin;
+        var imgnum = $("#ul li").length;
+        var setWidth = $("#ul li").width() * imgnum;
+        $("#slide-image ul").width(setWidth + parseFloat(0.5 * setWidth));
+        $(function () {
+            $("#next").click(function () {
+                if (index < imgnum - 5) {
+                    $("#slide-image ul li").animate({ right: "-=" + animate }, 1000);
+                    index++;
+                }
+            });
+            $("#prev").click(function () {
+                if (index > 0) {
+                    $("#slide-image ul li").animate({ right: "+=" + animate }, 1000);
+                    index--;
+                }
+            });
+
+        });
+    });
+</script>

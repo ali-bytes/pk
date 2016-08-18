@@ -1,0 +1,36 @@
+﻿@using Ui.EStore.Models
+@model RegisterCustomer 
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="register">
+        <h2>التسجيل</h2>
+        <div class="facebook"></div>
+        <form>
+            @Html.ValidationSummary()
+           
+            <div class="row">
+                <label>الاسم : </label>
+                @Html.TextBoxFor(u => u.UserName, new { Name = "UserName" })
+              
+            </div>
+            <div class="row"><label>البريد الالكترونى : </label>
+                @Html.TextBoxFor(u => u.Email, new { Name = "Email" })
+            </div>
+            <div class="row"><label>كلمة المرور : </label>
+                @Html.PasswordFor(u => u.Password, new { Name = "password" })
+            </div>
+            <div class="row"><label>تأكيد كلمة المرور : </label>
+                @Html.PasswordFor(u => u.ConfirmPassword, new { Name = "ConfirmPassword" })
+                @*<input type="text" name="confirm-password" />*@
+            </div>
+            <div class="row"><input type="submit" name="submit" value="تسجيل" /></div>
+        </form>
+    </div>
+}

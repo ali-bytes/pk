@@ -1,0 +1,420 @@
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Ui.EStore.dll.config
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Ui.EStore.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Ui.EStore.pdb
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Antlr3.Runtime.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Domain.EStore.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\EntityFramework.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\EntityFramework.SqlServer.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Newtonsoft.Json.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Owin.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Net.Http.Extensions.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Net.Http.Primitives.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.Helpers.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.Mvc.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.Optimization.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.Razor.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\WebGrease.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\WebMatrix.Data.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\WebMatrix.WebData.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Mono.Math.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Domain.EStore.pdb
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Net.Http.Extensions.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Net.Http.Primitives.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.Helpers.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.Mvc.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.Razor.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\System.Web.Optimization.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Newtonsoft.Json.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Antlr3.Runtime.pdb
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\WebMatrix.Data.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\WebMatrix.WebData.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\EntityFramework.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\EntityFramework.SqlServer.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\bin\Mono.Math.xml
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\obj\Release\Ui.EStore.csproj.App.config
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\obj\Release\Ui.EStore.csprojResolveAssemblyReference.cache
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\obj\Release\Ui.EStore.dll
+C:\Users\Mohamed\Documents\Visual Studio 2013\Projects\EStore\Ui.EStore\obj\Release\Ui.EStore.pdb
+E:\EStore\Ui.EStore\bin\Ui.EStore.dll.config
+E:\EStore\Ui.EStore\bin\Ui.EStore.dll
+E:\EStore\Ui.EStore\bin\Ui.EStore.pdb
+E:\EStore\Ui.EStore\bin\Antlr3.Runtime.dll
+E:\EStore\Ui.EStore\bin\Domain.EStore.dll
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.AspNet.dll
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.Core.dll
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.dll
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.dll
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\EStore\Ui.EStore\bin\EntityFramework.dll
+E:\EStore\Ui.EStore\bin\EntityFramework.SqlServer.dll
+E:\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.dll
+E:\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Google.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Web.Infrastructure.dll
+E:\EStore\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\EStore\Ui.EStore\bin\Newtonsoft.Json.dll
+E:\EStore\Ui.EStore\bin\Owin.dll
+E:\EStore\Ui.EStore\bin\System.Net.Http.Extensions.dll
+E:\EStore\Ui.EStore\bin\System.Net.Http.Primitives.dll
+E:\EStore\Ui.EStore\bin\System.Web.Helpers.dll
+E:\EStore\Ui.EStore\bin\System.Web.Mvc.dll
+E:\EStore\Ui.EStore\bin\System.Web.Optimization.dll
+E:\EStore\Ui.EStore\bin\System.Web.Razor.dll
+E:\EStore\Ui.EStore\bin\System.Web.WebPages.Deployment.dll
+E:\EStore\Ui.EStore\bin\System.Web.WebPages.dll
+E:\EStore\Ui.EStore\bin\System.Web.WebPages.Razor.dll
+E:\EStore\Ui.EStore\bin\WebGrease.dll
+E:\EStore\Ui.EStore\bin\WebMatrix.Data.dll
+E:\EStore\Ui.EStore\bin\WebMatrix.WebData.dll
+E:\EStore\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.dll
+E:\EStore\Ui.EStore\bin\Mono.Math.dll
+E:\EStore\Ui.EStore\bin\Domain.EStore.pdb
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.AspNet.xml
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.Core.xml
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.xml
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.xml
+E:\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\EStore\Ui.EStore\bin\System.Net.Http.Extensions.xml
+E:\EStore\Ui.EStore\bin\System.Net.Http.Primitives.xml
+E:\EStore\Ui.EStore\bin\System.Web.Helpers.xml
+E:\EStore\Ui.EStore\bin\System.Web.Mvc.xml
+E:\EStore\Ui.EStore\bin\System.Web.Razor.xml
+E:\EStore\Ui.EStore\bin\System.Web.WebPages.xml
+E:\EStore\Ui.EStore\bin\System.Web.WebPages.Deployment.xml
+E:\EStore\Ui.EStore\bin\System.Web.WebPages.Razor.xml
+E:\EStore\Ui.EStore\bin\System.Web.Optimization.xml
+E:\EStore\Ui.EStore\bin\Newtonsoft.Json.xml
+E:\EStore\Ui.EStore\bin\Antlr3.Runtime.pdb
+E:\EStore\Ui.EStore\bin\WebMatrix.Data.xml
+E:\EStore\Ui.EStore\bin\WebMatrix.WebData.xml
+E:\EStore\Ui.EStore\bin\EntityFramework.xml
+E:\EStore\Ui.EStore\bin\EntityFramework.SqlServer.xml
+E:\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.xml
+E:\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Google.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.xml
+E:\EStore\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\EStore\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.xml
+E:\EStore\Ui.EStore\bin\Mono.Math.xml
+E:\EStore\Ui.EStore\obj\Release\Ui.EStore.csproj.App.config
+E:\EStore\Ui.EStore\obj\Release\Ui.EStore.csprojResolveAssemblyReference.cache
+E:\EStore\Ui.EStore\obj\Release\Ui.EStore.dll
+E:\EStore\Ui.EStore\obj\Release\Ui.EStore.pdb
+E:\Projects\EStore\Ui.EStore\bin\Ui.EStore.dll.config
+E:\Projects\EStore\Ui.EStore\bin\Ui.EStore.dll
+E:\Projects\EStore\Ui.EStore\bin\Ui.EStore.pdb
+E:\Projects\EStore\Ui.EStore\bin\Antlr3.Runtime.dll
+E:\Projects\EStore\Ui.EStore\bin\Domain.EStore.dll
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.AspNet.dll
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.Core.dll
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.dll
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.dll
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Projects\EStore\Ui.EStore\bin\EntityFramework.dll
+E:\Projects\EStore\Ui.EStore\bin\EntityFramework.SqlServer.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Google.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\Projects\EStore\Ui.EStore\bin\Newtonsoft.Json.dll
+E:\Projects\EStore\Ui.EStore\bin\Owin.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Net.Http.Extensions.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Net.Http.Primitives.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Web.Helpers.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Web.Mvc.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Web.Optimization.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Web.Razor.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.dll
+E:\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.Razor.dll
+E:\Projects\EStore\Ui.EStore\bin\WebGrease.dll
+E:\Projects\EStore\Ui.EStore\bin\WebMatrix.Data.dll
+E:\Projects\EStore\Ui.EStore\bin\WebMatrix.WebData.dll
+E:\Projects\EStore\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.dll
+E:\Projects\EStore\Ui.EStore\bin\Mono.Math.dll
+E:\Projects\EStore\Ui.EStore\bin\Domain.EStore.pdb
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.AspNet.xml
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.Core.xml
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.xml
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.xml
+E:\Projects\EStore\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Net.Http.Extensions.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Net.Http.Primitives.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Web.Helpers.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Web.Mvc.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Web.Razor.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Web.WebPages.Razor.xml
+E:\Projects\EStore\Ui.EStore\bin\System.Web.Optimization.xml
+E:\Projects\EStore\Ui.EStore\bin\Newtonsoft.Json.xml
+E:\Projects\EStore\Ui.EStore\bin\Antlr3.Runtime.pdb
+E:\Projects\EStore\Ui.EStore\bin\WebMatrix.Data.xml
+E:\Projects\EStore\Ui.EStore\bin\WebMatrix.WebData.xml
+E:\Projects\EStore\Ui.EStore\bin\EntityFramework.xml
+E:\Projects\EStore\Ui.EStore\bin\EntityFramework.SqlServer.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Google.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Projects\EStore\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Projects\EStore\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.xml
+E:\Projects\EStore\Ui.EStore\bin\Mono.Math.xml
+E:\Projects\EStore\Ui.EStore\obj\Release\Ui.EStore.csproj.App.config
+E:\Projects\EStore\Ui.EStore\obj\Release\Ui.EStore.csprojResolveAssemblyReference.cache
+E:\Projects\EStore\Ui.EStore\obj\Release\Ui.EStore.dll
+E:\Projects\EStore\Ui.EStore\obj\Release\Ui.EStore.pdb
+D:\projects\DukkanPinky\Ui.EStore\bin\Ui.EStore.dll.config
+D:\projects\DukkanPinky\Ui.EStore\bin\Ui.EStore.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Ui.EStore.pdb
+D:\projects\DukkanPinky\Ui.EStore\bin\Antlr3.Runtime.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Domain.EStore.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.AspNet.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.Core.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OAuth.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OpenId.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\EntityFramework.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\EntityFramework.SqlServer.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Google.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Web.Infrastructure.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Newtonsoft.Json.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Owin.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Net.Http.Extensions.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Net.Http.Primitives.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.Helpers.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.Mvc.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.Optimization.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.Razor.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.Deployment.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.Razor.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\WebGrease.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\WebMatrix.Data.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\WebMatrix.WebData.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Mono.Math.dll
+D:\projects\DukkanPinky\Ui.EStore\bin\Domain.EStore.pdb
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.AspNet.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.Core.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OAuth.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OpenId.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Net.Http.Extensions.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Net.Http.Primitives.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.Helpers.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.Mvc.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.Razor.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.Deployment.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.Razor.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\System.Web.Optimization.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Newtonsoft.Json.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Antlr3.Runtime.pdb
+D:\projects\DukkanPinky\Ui.EStore\bin\WebMatrix.Data.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\WebMatrix.WebData.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\EntityFramework.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\EntityFramework.SqlServer.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Google.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.xml
+D:\projects\DukkanPinky\Ui.EStore\bin\Mono.Math.xml
+D:\projects\DukkanPinky\Ui.EStore\obj\Release\Ui.EStore.csproj.App.config
+D:\projects\DukkanPinky\Ui.EStore\obj\Release\Ui.EStore.csprojResolveAssemblyReference.cache
+D:\projects\DukkanPinky\Ui.EStore\obj\Release\Ui.EStore.dll
+D:\projects\DukkanPinky\Ui.EStore\obj\Release\Ui.EStore.pdb
+E:\Projects\DukkanPinky\Ui.EStore\bin\Ui.EStore.dll.config
+E:\Projects\DukkanPinky\Ui.EStore\bin\Ui.EStore.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Ui.EStore.pdb
+E:\Projects\DukkanPinky\Ui.EStore\bin\Antlr3.Runtime.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Domain.EStore.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.AspNet.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.Core.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OAuth.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OpenId.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\EntityFramework.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\EntityFramework.SqlServer.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Google.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Newtonsoft.Json.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Owin.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Net.Http.Extensions.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Net.Http.Primitives.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.Helpers.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.Mvc.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.Optimization.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.Razor.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.Razor.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\WebGrease.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\WebMatrix.Data.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\WebMatrix.WebData.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Mono.Math.dll
+E:\Projects\DukkanPinky\Ui.EStore\bin\Domain.EStore.pdb
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.AspNet.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.Core.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OAuth.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OpenId.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Net.Http.Extensions.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Net.Http.Primitives.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.Helpers.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.Mvc.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.Razor.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.WebPages.Razor.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\System.Web.Optimization.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Newtonsoft.Json.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Antlr3.Runtime.pdb
+E:\Projects\DukkanPinky\Ui.EStore\bin\WebMatrix.Data.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\WebMatrix.WebData.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\EntityFramework.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\EntityFramework.SqlServer.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Google.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Org.Mentalis.Security.Cryptography.xml
+E:\Projects\DukkanPinky\Ui.EStore\bin\Mono.Math.xml
+E:\Projects\DukkanPinky\Ui.EStore\obj\Release\Ui.EStore.csproj.App.config
+E:\Projects\DukkanPinky\Ui.EStore\obj\Release\Ui.EStore.csprojResolveAssemblyReference.cache
+E:\Projects\DukkanPinky\Ui.EStore\obj\Release\Ui.EStore.dll
+E:\Projects\DukkanPinky\Ui.EStore\obj\Release\Ui.EStore.pdb

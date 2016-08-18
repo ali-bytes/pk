@@ -1,0 +1,1142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="EStoreModel.Branch" />
+    <EntitySet Name="Brands" EntityType="EStoreModel.Brand" />
+    <EntitySet Name="CartDetails" EntityType="EStoreModel.CartDetail" />
+    <EntitySet Name="Carts" EntityType="EStoreModel.Cart" />
+    <EntitySet Name="Categories" EntityType="EStoreModel.Category" />
+    <EntitySet Name="Cities" EntityType="EStoreModel.City" />
+    <EntitySet Name="Customers" EntityType="EStoreModel.Customer" />
+    <EntitySet Name="deliveries" EntityType="EStoreModel.delivery" />
+    <EntitySet Name="Enquiries" EntityType="EStoreModel.Enquiry" />
+    <EntitySet Name="FAQs" EntityType="EStoreModel.FAQ" />
+    <EntitySet Name="GetWays" EntityType="EStoreModel.GetWay" />
+    <EntitySet Name="Governates" EntityType="EStoreModel.Governate" />
+    <EntitySet Name="HomeDetails" EntityType="EStoreModel.HomeDetail" />
+    <EntitySet Name="LestCategories" EntityType="EStoreModel.LestCategory" />
+    <EntitySet Name="MainCategories" EntityType="EStoreModel.MainCategory" />
+    <EntitySet Name="PrivilegeActions" EntityType="EStoreModel.PrivilegeAction" />
+    <EntitySet Name="PrivilegeCategories" EntityType="EStoreModel.PrivilegeCategory" />
+    <EntitySet Name="Privileges" EntityType="EStoreModel.Privilege" />
+    <EntitySet Name="ProductImages" EntityType="EStoreModel.ProductImage" />
+    <EntitySet Name="Products" EntityType="EStoreModel.Product" />
+    <EntitySet Name="ProductShows" EntityType="EStoreModel.ProductShow" />
+    <EntitySet Name="Ratings" EntityType="EStoreModel.Rating" />
+    <EntitySet Name="RulePrivileges" EntityType="EStoreModel.RulePrivilege" />
+    <EntitySet Name="Rules" EntityType="EStoreModel.Rule" />
+    <EntitySet Name="SliderImages" EntityType="EStoreModel.SliderImage" />
+    <EntitySet Name="Specialities" EntityType="EStoreModel.Speciality" />
+    <EntitySet Name="SysEmails" EntityType="EStoreModel.SysEmail" />
+    <EntitySet Name="SysNews" EntityType="EStoreModel.SysNew" />
+    <EntitySet Name="UserOperations" EntityType="EStoreModel.UserOperation" />
+    <EntitySet Name="UserOperationTypes" EntityType="EStoreModel.UserOperationType" />
+    <EntitySet Name="UserProfiles" EntityType="EStoreModel.UserProfile" />
+    <EntitySet Name="Users" EntityType="EStoreModel.User" />
+    <EntitySet Name="ViewControls" EntityType="EStoreModel.ViewControl" />
+    <EntitySet Name="webpages_Membership" EntityType="EStoreModel.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="EStoreModel.webpages_OAuthMembership" />
+    <EntitySet Name="webpages_Roles" EntityType="EStoreModel.webpages_Roles" />
+    <AssociationSet Name="FK_Branches_Cities" Association="EStoreModel.FK_Branches_Cities">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Branch" EntitySet="Branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Branches_Governates" Association="EStoreModel.FK_Branches_Governates">
+      <End Role="Governate" EntitySet="Governates" />
+      <End Role="Branch" EntitySet="Branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Brands" Association="EStoreModel.FK_Products_Brands">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartDetails_Carts" Association="EStoreModel.FK_CartDetails_Carts">
+      <End Role="Cart" EntitySet="Carts" />
+      <End Role="CartDetail" EntitySet="CartDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carts_deliveries" Association="EStoreModel.FK_Carts_deliveries">
+      <End Role="delivery" EntitySet="deliveries" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carts_GetWaies" Association="EStoreModel.FK_Carts_GetWaies">
+      <End Role="GetWay" EntitySet="GetWays" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carts_UserProfile" Association="EStoreModel.FK_Carts_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categories_MainCategories" Association="EStoreModel.FK_Categories_MainCategories">
+      <End Role="MainCategory" EntitySet="MainCategories" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LestCategories_Categories" Association="EStoreModel.FK_LestCategories_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="LestCategory" EntitySet="LestCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Categories" Association="EStoreModel.FK_Products_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_Governates" Association="EStoreModel.FK_Cities_Governates">
+      <End Role="Governate" EntitySet="Governates" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enquiries_Products" Association="EStoreModel.FK_Enquiries_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Enquiry" EntitySet="Enquiries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LestCategories_MainCategories" Association="EStoreModel.FK_LestCategories_MainCategories">
+      <End Role="MainCategory" EntitySet="MainCategories" />
+      <End Role="LestCategory" EntitySet="LestCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_LestCategory" Association="EStoreModel.FK_Products_LestCategory">
+      <End Role="LestCategory" EntitySet="LestCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_MainCategories" Association="EStoreModel.FK_Products_MainCategories">
+      <End Role="MainCategory" EntitySet="MainCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrivilegeActions_Privileges" Association="EStoreModel.FK_PrivilegeActions_Privileges">
+      <End Role="Privilege" EntitySet="Privileges" />
+      <End Role="PrivilegeAction" EntitySet="PrivilegeActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewControls_PrivilegeActions" Association="EStoreModel.FK_ViewControls_PrivilegeActions">
+      <End Role="PrivilegeAction" EntitySet="PrivilegeActions" />
+      <End Role="ViewControl" EntitySet="ViewControls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Privileges_PrivilegeCategories" Association="EStoreModel.FK_Privileges_PrivilegeCategories">
+      <End Role="PrivilegeCategory" EntitySet="PrivilegeCategories" />
+      <End Role="Privilege" EntitySet="Privileges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RulePrivileges_Privileges" Association="EStoreModel.FK_RulePrivileges_Privileges">
+      <End Role="Privilege" EntitySet="Privileges" />
+      <End Role="RulePrivilege" EntitySet="RulePrivileges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductImages_Products" Association="EStoreModel.FK_ProductImages_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductImage" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Products" Association="EStoreModel.FK_Table_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductShow" EntitySet="ProductShows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RulePrivileges_Rules" Association="EStoreModel.FK_RulePrivileges_Rules">
+      <End Role="Rule" EntitySet="Rules" />
+      <End Role="RulePrivilege" EntitySet="RulePrivileges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Rules" Association="EStoreModel.FK_Users_Rules">
+      <End Role="Rule" EntitySet="Rules" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserOperations_UserOperationTypes" Association="EStoreModel.FK_UserOperations_UserOperationTypes">
+      <End Role="UserOperationType" EntitySet="UserOperationTypes" />
+      <End Role="UserOperation" EntitySet="UserOperations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserOperations_Users" Association="EStoreModel.FK_UserOperations_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserOperation" EntitySet="UserOperations" />
+    </AssociationSet>
+    <AssociationSet Name="webpages_UsersInRoles" Association="EStoreModel.webpages_UsersInRoles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <EntitySet Name="LanguagePages" EntityType="EStoreModel.LanguagePage" />
+    <EntitySet Name="Languages" EntityType="EStoreModel.Language" />
+    <EntitySet Name="LanguageTools" EntityType="EStoreModel.LanguageTool" />
+    <EntitySet Name="PageTools" EntityType="EStoreModel.PageTool" />
+    <EntitySet Name="SysPages" EntityType="EStoreModel.SysPage" />
+    <AssociationSet Name="FK_LanguagePages_Languages" Association="EStoreModel.FK_LanguagePages_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="LanguagePage" EntitySet="LanguagePages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguagePages_Pages" Association="EStoreModel.FK_LanguagePages_Pages">
+      <End Role="SysPage" EntitySet="SysPages" />
+      <End Role="LanguagePage" EntitySet="LanguagePages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageTools_LanguagePages" Association="EStoreModel.FK_LanguageTools_LanguagePages">
+      <End Role="LanguagePage" EntitySet="LanguagePages" />
+      <End Role="LanguageTool" EntitySet="LanguageTools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageTools_PageTools" Association="EStoreModel.FK_LanguageTools_PageTools">
+      <End Role="PageTool" EntitySet="PageTools" />
+      <End Role="LanguageTool" EntitySet="LanguageTools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PageTools_Pages" Association="EStoreModel.FK_PageTools_Pages">
+      <End Role="SysPage" EntitySet="SysPages" />
+      <End Role="PageTool" EntitySet="PageTools" />
+    </AssociationSet>
+    <EntitySet Name="SeoLanguageTools" EntityType="EStoreModel.SeoLanguageTool" />
+    <EntitySet Name="SeoManagers" EntityType="EStoreModel.SeoManager" />
+    <EntitySet Name="SeoPageTools" EntityType="EStoreModel.SeoPageTool" />
+    <AssociationSet Name="FK_SeoLanguageTools_LanguagePages" Association="EStoreModel.FK_SeoLanguageTools_LanguagePages">
+      <End Role="LanguagePage" EntitySet="LanguagePages" />
+      <End Role="SeoLanguageTool" EntitySet="SeoLanguageTools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SeoLanguageTools_SeoPageTools" Association="EStoreModel.FK_SeoLanguageTools_SeoPageTools">
+      <End Role="SeoPageTool" EntitySet="SeoPageTools" />
+      <End Role="SeoLanguageTool" EntitySet="SeoLanguageTools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SeoManagers_SeoPageTools" Association="EStoreModel.FK_SeoManagers_SeoPageTools">
+      <End Role="SeoPageTool" EntitySet="SeoPageTools" />
+      <End Role="SeoManager" EntitySet="SeoManagers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SeoPageTools_SysPages" Association="EStoreModel.FK_SeoPageTools_SysPages">
+      <End Role="SysPage" EntitySet="SysPages" />
+      <End Role="SeoPageTool" EntitySet="SeoPageTools" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GovernateId" Type="Int32" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="AddressEn" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DetailsEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="City" Relationship="EStoreModel.FK_Branches_Cities" FromRole="Branch" ToRole="City" />
+    <NavigationProperty Name="Governate" Relationship="EStoreModel.FK_Branches_Governates" FromRole="Branch" ToRole="Governate" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="EStoreModel.FK_Products_Brands" FromRole="Brand" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="CartDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CartId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+    <Property Name="Quntity" Type="Double" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+    <NavigationProperty Name="Cart" Relationship="EStoreModel.FK_CartDetails_Carts" FromRole="CartDetail" ToRole="Cart" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeliveryId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="DeliveryState" Type="Boolean" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="GetwayId" Type="Int32" />
+    <Property Name="IsShow" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CartDetails" Relationship="EStoreModel.FK_CartDetails_Carts" FromRole="Cart" ToRole="CartDetail" />
+    <NavigationProperty Name="delivery" Relationship="EStoreModel.FK_Carts_deliveries" FromRole="Cart" ToRole="delivery" />
+    <NavigationProperty Name="GetWay" Relationship="EStoreModel.FK_Carts_GetWaies" FromRole="Cart" ToRole="GetWay" />
+    <NavigationProperty Name="UserProfile" Relationship="EStoreModel.FK_Carts_UserProfile" FromRole="Cart" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="MainCategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MainCategory" Relationship="EStoreModel.FK_Categories_MainCategories" FromRole="Category" ToRole="MainCategory" />
+    <NavigationProperty Name="LestCategories" Relationship="EStoreModel.FK_LestCategories_Categories" FromRole="Category" ToRole="LestCategory" />
+    <NavigationProperty Name="Products" Relationship="EStoreModel.FK_Products_Categories" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="GovernateId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Branches" Relationship="EStoreModel.FK_Branches_Cities" FromRole="City" ToRole="Branch" />
+    <NavigationProperty Name="Governate" Relationship="EStoreModel.FK_Cities_Governates" FromRole="City" ToRole="Governate" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserNameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="delivery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <NavigationProperty Name="Carts" Relationship="EStoreModel.FK_Carts_deliveries" FromRole="delivery" ToRole="Cart" />
+  </EntityType>
+  <EntityType Name="Enquiry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="UserNameEn" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Question" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="Replay" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Product" Relationship="EStoreModel.FK_Enquiries_Products" FromRole="Enquiry" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="FAQ">
+    <Key>
+      <PropertyRef Name="FAQId" />
+    </Key>
+    <Property Name="FAQId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FAQTitle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FAQTitleEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FAQDetails" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="FAQDetailsEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="FAQCreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="GetWay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Berif" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="BerifEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Carts" Relationship="EStoreModel.FK_Carts_GetWaies" FromRole="GetWay" ToRole="Cart" />
+  </EntityType>
+  <EntityType Name="Governate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Branches" Relationship="EStoreModel.FK_Branches_Governates" FromRole="Governate" ToRole="Branch" />
+    <NavigationProperty Name="Cities" Relationship="EStoreModel.FK_Cities_Governates" FromRole="Governate" ToRole="City" />
+  </EntityType>
+  <EntityType Name="HomeDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TitleEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Berif" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="BerifEn" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DetailsEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LestCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="EStoreModel.FK_LestCategories_Categories" FromRole="LestCategory" ToRole="Category" />
+    <NavigationProperty Name="MainCategory" Relationship="EStoreModel.FK_LestCategories_MainCategories" FromRole="LestCategory" ToRole="MainCategory" />
+    <NavigationProperty Name="Products" Relationship="EStoreModel.FK_Products_LestCategory" FromRole="LestCategory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="MainCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Categories" Relationship="EStoreModel.FK_Categories_MainCategories" FromRole="MainCategory" ToRole="Category" />
+    <NavigationProperty Name="LestCategories" Relationship="EStoreModel.FK_LestCategories_MainCategories" FromRole="MainCategory" ToRole="LestCategory" />
+    <NavigationProperty Name="Products" Relationship="EStoreModel.FK_Products_MainCategories" FromRole="MainCategory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="PrivilegeAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ControllerName" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ActionName" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="PrivilegeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Privilege" Relationship="EStoreModel.FK_PrivilegeActions_Privileges" FromRole="PrivilegeAction" ToRole="Privilege" />
+    <NavigationProperty Name="ViewControls" Relationship="EStoreModel.FK_ViewControls_PrivilegeActions" FromRole="PrivilegeAction" ToRole="ViewControl" />
+  </EntityType>
+  <EntityType Name="PrivilegeCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="PrivilegeCategoryOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Privileges" Relationship="EStoreModel.FK_Privileges_PrivilegeCategories" FromRole="PrivilegeCategory" ToRole="Privilege" />
+  </EntityType>
+  <EntityType Name="Privilege">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="PrivilegeCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="PrivilegeOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PrivilegeActions" Relationship="EStoreModel.FK_PrivilegeActions_Privileges" FromRole="Privilege" ToRole="PrivilegeAction" />
+    <NavigationProperty Name="PrivilegeCategory" Relationship="EStoreModel.FK_Privileges_PrivilegeCategories" FromRole="Privilege" ToRole="PrivilegeCategory" />
+    <NavigationProperty Name="RulePrivileges" Relationship="EStoreModel.FK_RulePrivileges_Privileges" FromRole="Privilege" ToRole="RulePrivilege" />
+  </EntityType>
+  <EntityType Name="ProductImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Berif" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="BerifEn" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="EStoreModel.FK_ProductImages_Products" FromRole="ProductImage" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="BrandId" Type="Int32" Nullable="false" />
+    <Property Name="MainCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="LestCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Berif" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="BerifEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DetailsEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="DiscountPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ImageUrl" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountPercent" Type="Boolean" Nullable="false" />
+    <Property Name="AvailableQuntaty" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="NotesEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsHome" Type="Boolean" Nullable="false" />
+    <Property Name="Evalute" Type="Byte" Nullable="false" />
+    <Property Name="BestSeller" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Brand" Relationship="EStoreModel.FK_Products_Brands" FromRole="Product" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="EStoreModel.FK_Products_Categories" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Enquiries" Relationship="EStoreModel.FK_Enquiries_Products" FromRole="Product" ToRole="Enquiry" />
+    <NavigationProperty Name="LestCategory" Relationship="EStoreModel.FK_Products_LestCategory" FromRole="Product" ToRole="LestCategory" />
+    <NavigationProperty Name="MainCategory" Relationship="EStoreModel.FK_Products_MainCategories" FromRole="Product" ToRole="MainCategory" />
+    <NavigationProperty Name="ProductImages" Relationship="EStoreModel.FK_ProductImages_Products" FromRole="Product" ToRole="ProductImage" />
+    <NavigationProperty Name="ProductShows" Relationship="EStoreModel.FK_Table_Products" FromRole="Product" ToRole="ProductShow" />
+  </EntityType>
+  <EntityType Name="ProductShow">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="SaledNum" Type="Int32" Nullable="false" />
+    <Property Name="ShowNum" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="EStoreModel.FK_Table_Products" FromRole="ProductShow" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Rate" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RulePrivilege">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RuleId" Type="Int32" Nullable="false" />
+    <Property Name="PrivilegeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Privilege" Relationship="EStoreModel.FK_RulePrivileges_Privileges" FromRole="RulePrivilege" ToRole="Privilege" />
+    <NavigationProperty Name="Rule" Relationship="EStoreModel.FK_RulePrivileges_Rules" FromRole="RulePrivilege" ToRole="Rule" />
+  </EntityType>
+  <EntityType Name="Rule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="RulePrivileges" Relationship="EStoreModel.FK_RulePrivileges_Rules" FromRole="Rule" ToRole="RulePrivilege" />
+    <NavigationProperty Name="Users" Relationship="EStoreModel.FK_Users_Rules" FromRole="Rule" ToRole="User" />
+  </EntityType>
+  <EntityType Name="SliderImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Berif" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BerifEn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DetailsEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="OrderNum" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Speciality">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SysEmail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SysNew">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Berif" Type="String" Nullable="false" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="TitleEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BerifEn" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="DetailsEn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserOperationTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Details" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="DetailsEn" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserOperationType" Relationship="EStoreModel.FK_UserOperations_UserOperationTypes" FromRole="UserOperation" ToRole="UserOperationType" />
+    <NavigationProperty Name="User" Relationship="EStoreModel.FK_UserOperations_Users" FromRole="UserOperation" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserOperationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="555" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserOperations" Relationship="EStoreModel.FK_UserOperations_UserOperationTypes" FromRole="UserOperationType" ToRole="UserOperation" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Carts" Relationship="EStoreModel.FK_Carts_UserProfile" FromRole="UserProfile" ToRole="Cart" />
+    <NavigationProperty Name="webpages_Roles" Relationship="EStoreModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RuleId" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Rule" Relationship="EStoreModel.FK_Users_Rules" FromRole="User" ToRole="Rule" />
+    <NavigationProperty Name="UserOperations" Relationship="EStoreModel.FK_UserOperations_Users" FromRole="User" ToRole="UserOperation" />
+  </EntityType>
+  <EntityType Name="ViewControl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrivilegeActionId" Type="Int32" Nullable="false" />
+    <Property Name="ViewName" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ControlName" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PrivilegeAction" Relationship="EStoreModel.FK_ViewControls_PrivilegeActions" FromRole="ViewControl" ToRole="PrivilegeAction" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserProfiles" Relationship="EStoreModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="FK_Branches_Cities">
+    <End Type="EStoreModel.City" Role="City" Multiplicity="1" />
+    <End Type="EStoreModel.Branch" Role="Branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Branches_Governates">
+    <End Type="EStoreModel.Governate" Role="Governate" Multiplicity="1" />
+    <End Type="EStoreModel.Branch" Role="Branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Governate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="GovernateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Brands">
+    <End Type="EStoreModel.Brand" Role="Brand" Multiplicity="1" />
+    <End Type="EStoreModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartDetails_Carts">
+    <End Type="EStoreModel.Cart" Role="Cart" Multiplicity="1" />
+    <End Type="EStoreModel.CartDetail" Role="CartDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cart">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartDetail">
+        <PropertyRef Name="CartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carts_deliveries">
+    <End Type="EStoreModel.delivery" Role="delivery" Multiplicity="0..1" />
+    <End Type="EStoreModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="delivery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="DeliveryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carts_GetWaies">
+    <End Type="EStoreModel.GetWay" Role="GetWay" Multiplicity="0..1" />
+    <End Type="EStoreModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GetWay">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="GetwayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carts_UserProfile">
+    <End Type="EStoreModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+    <End Type="EStoreModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categories_MainCategories">
+    <End Type="EStoreModel.MainCategory" Role="MainCategory" Multiplicity="1" />
+    <End Type="EStoreModel.Category" Role="Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="MainCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LestCategories_Categories">
+    <End Type="EStoreModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="EStoreModel.LestCategory" Role="LestCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LestCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Categories">
+    <End Type="EStoreModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="EStoreModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_Governates">
+    <End Type="EStoreModel.Governate" Role="Governate" Multiplicity="1" />
+    <End Type="EStoreModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Governate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="GovernateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enquiries_Products">
+    <End Type="EStoreModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="EStoreModel.Enquiry" Role="Enquiry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enquiry">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LestCategories_MainCategories">
+    <End Type="EStoreModel.MainCategory" Role="MainCategory" Multiplicity="1" />
+    <End Type="EStoreModel.LestCategory" Role="LestCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LestCategory">
+        <PropertyRef Name="MainCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_LestCategory">
+    <End Type="EStoreModel.LestCategory" Role="LestCategory" Multiplicity="1" />
+    <End Type="EStoreModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LestCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="LestCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_MainCategories">
+    <End Type="EStoreModel.MainCategory" Role="MainCategory" Multiplicity="1" />
+    <End Type="EStoreModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="MainCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrivilegeActions_Privileges">
+    <End Type="EStoreModel.Privilege" Role="Privilege" Multiplicity="1" />
+    <End Type="EStoreModel.PrivilegeAction" Role="PrivilegeAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Privilege">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrivilegeAction">
+        <PropertyRef Name="PrivilegeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewControls_PrivilegeActions">
+    <End Type="EStoreModel.PrivilegeAction" Role="PrivilegeAction" Multiplicity="1" />
+    <End Type="EStoreModel.ViewControl" Role="ViewControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrivilegeAction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ViewControl">
+        <PropertyRef Name="PrivilegeActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Privileges_PrivilegeCategories">
+    <End Type="EStoreModel.PrivilegeCategory" Role="PrivilegeCategory" Multiplicity="1" />
+    <End Type="EStoreModel.Privilege" Role="Privilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrivilegeCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Privilege">
+        <PropertyRef Name="PrivilegeCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RulePrivileges_Privileges">
+    <End Type="EStoreModel.Privilege" Role="Privilege" Multiplicity="1" />
+    <End Type="EStoreModel.RulePrivilege" Role="RulePrivilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Privilege">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RulePrivilege">
+        <PropertyRef Name="PrivilegeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductImages_Products">
+    <End Type="EStoreModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="EStoreModel.ProductImage" Role="ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductImage">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Products">
+    <End Type="EStoreModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="EStoreModel.ProductShow" Role="ProductShow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductShow">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RulePrivileges_Rules">
+    <End Type="EStoreModel.Rule" Role="Rule" Multiplicity="1" />
+    <End Type="EStoreModel.RulePrivilege" Role="RulePrivilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RulePrivilege">
+        <PropertyRef Name="RuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Rules">
+    <End Type="EStoreModel.Rule" Role="Rule" Multiplicity="1" />
+    <End Type="EStoreModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserOperations_UserOperationTypes">
+    <End Type="EStoreModel.UserOperationType" Role="UserOperationType" Multiplicity="1" />
+    <End Type="EStoreModel.UserOperation" Role="UserOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserOperationType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserOperation">
+        <PropertyRef Name="UserOperationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserOperations_Users">
+    <End Type="EStoreModel.User" Role="User" Multiplicity="1" />
+    <End Type="EStoreModel.UserOperation" Role="UserOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserOperation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="webpages_UsersInRoles">
+    <End Type="EStoreModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+    <End Type="EStoreModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+  </Association>
+  <EntityType Name="LanguagePage">
+    <Key>
+      <PropertyRef Name="LanguagePageId" />
+    </Key>
+    <Property Name="LanguagePageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageId" Type="Int16" Nullable="false" />
+    <Property Name="PageId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Language" Relationship="EStoreModel.FK_LanguagePages_Languages" FromRole="LanguagePage" ToRole="Language" />
+    <NavigationProperty Name="SysPage" Relationship="EStoreModel.FK_LanguagePages_Pages" FromRole="LanguagePage" ToRole="SysPage" />
+    <NavigationProperty Name="LanguageTools" Relationship="EStoreModel.FK_LanguageTools_LanguagePages" FromRole="LanguagePage" ToRole="LanguageTool" />
+    <NavigationProperty Name="SeoLanguageTools" Relationship="EStoreModel.FK_SeoLanguageTools_LanguagePages" FromRole="LanguagePage" ToRole="SeoLanguageTool" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageState" Type="Boolean" Nullable="false" />
+    <Property Name="LanguageType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LanguagePages" Relationship="EStoreModel.FK_LanguagePages_Languages" FromRole="Language" ToRole="LanguagePage" />
+  </EntityType>
+  <EntityType Name="LanguageTool">
+    <Key>
+      <PropertyRef Name="LanguageToolId" />
+    </Key>
+    <Property Name="LanguageToolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ToolId" Type="Int32" Nullable="false" />
+    <Property Name="LanguagePageId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageToolValue" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LanguagePage" Relationship="EStoreModel.FK_LanguageTools_LanguagePages" FromRole="LanguageTool" ToRole="LanguagePage" />
+    <NavigationProperty Name="PageTool" Relationship="EStoreModel.FK_LanguageTools_PageTools" FromRole="LanguageTool" ToRole="PageTool" />
+  </EntityType>
+  <EntityType Name="PageTool">
+    <Key>
+      <PropertyRef Name="ToolId" />
+    </Key>
+    <Property Name="ToolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ToolName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PageId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LanguageTools" Relationship="EStoreModel.FK_LanguageTools_PageTools" FromRole="PageTool" ToRole="LanguageTool" />
+    <NavigationProperty Name="SysPage" Relationship="EStoreModel.FK_PageTools_Pages" FromRole="PageTool" ToRole="SysPage" />
+  </EntityType>
+  <EntityType Name="SysPage">
+    <Key>
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Name="PageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LanguagePages" Relationship="EStoreModel.FK_LanguagePages_Pages" FromRole="SysPage" ToRole="LanguagePage" />
+    <NavigationProperty Name="PageTools" Relationship="EStoreModel.FK_PageTools_Pages" FromRole="SysPage" ToRole="PageTool" />
+    <NavigationProperty Name="SeoPageTools" Relationship="EStoreModel.FK_SeoPageTools_SysPages" FromRole="SysPage" ToRole="SeoPageTool" />
+  </EntityType>
+  <Association Name="FK_LanguagePages_Languages">
+    <End Type="EStoreModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="EStoreModel.LanguagePage" Role="LanguagePage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="LanguagePage">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguagePages_Pages">
+    <End Type="EStoreModel.SysPage" Role="SysPage" Multiplicity="1" />
+    <End Type="EStoreModel.LanguagePage" Role="LanguagePage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysPage">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="LanguagePage">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageTools_LanguagePages">
+    <End Type="EStoreModel.LanguagePage" Role="LanguagePage" Multiplicity="1" />
+    <End Type="EStoreModel.LanguageTool" Role="LanguageTool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LanguagePage">
+        <PropertyRef Name="LanguagePageId" />
+      </Principal>
+      <Dependent Role="LanguageTool">
+        <PropertyRef Name="LanguagePageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageTools_PageTools">
+    <End Type="EStoreModel.PageTool" Role="PageTool" Multiplicity="1" />
+    <End Type="EStoreModel.LanguageTool" Role="LanguageTool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PageTool">
+        <PropertyRef Name="ToolId" />
+      </Principal>
+      <Dependent Role="LanguageTool">
+        <PropertyRef Name="ToolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PageTools_Pages">
+    <End Type="EStoreModel.SysPage" Role="SysPage" Multiplicity="1" />
+    <End Type="EStoreModel.PageTool" Role="PageTool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysPage">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="PageTool">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SeoLanguageTool">
+    <Key>
+      <PropertyRef Name="LanguageToolId" />
+    </Key>
+    <Property Name="LanguageToolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ToolId" Type="Int32" Nullable="false" />
+    <Property Name="LanguagePageId" Type="Int32" Nullable="false" />
+    <Property Name="Keywords" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="SeoUrl" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ControllerName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ActionName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UrlParameter" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LanguagePage" Relationship="EStoreModel.FK_SeoLanguageTools_LanguagePages" FromRole="SeoLanguageTool" ToRole="LanguagePage" />
+    <NavigationProperty Name="SeoPageTool" Relationship="EStoreModel.FK_SeoLanguageTools_SeoPageTools" FromRole="SeoLanguageTool" ToRole="SeoPageTool" />
+  </EntityType>
+  <EntityType Name="SeoManager">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ToolId" Type="Int32" Nullable="false" />
+    <Property Name="LanguagePageId" Type="Int32" Nullable="false" />
+    <Property Name="SeoUrl" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ControllerName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ActionName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UrlParameter" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SeoPageTool" Relationship="EStoreModel.FK_SeoManagers_SeoPageTools" FromRole="SeoManager" ToRole="SeoPageTool" />
+  </EntityType>
+  <EntityType Name="SeoPageTool">
+    <Key>
+      <PropertyRef Name="ToolId" />
+    </Key>
+    <Property Name="ToolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ToolName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PageId" Type="Int32" Nullable="false" />
+    <Property Name="PageUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SeoLanguageTools" Relationship="EStoreModel.FK_SeoLanguageTools_SeoPageTools" FromRole="SeoPageTool" ToRole="SeoLanguageTool" />
+    <NavigationProperty Name="SeoManagers" Relationship="EStoreModel.FK_SeoManagers_SeoPageTools" FromRole="SeoPageTool" ToRole="SeoManager" />
+    <NavigationProperty Name="SysPage" Relationship="EStoreModel.FK_SeoPageTools_SysPages" FromRole="SeoPageTool" ToRole="SysPage" />
+  </EntityType>
+  <Association Name="FK_SeoLanguageTools_LanguagePages">
+    <End Type="EStoreModel.LanguagePage" Role="LanguagePage" Multiplicity="1" />
+    <End Type="EStoreModel.SeoLanguageTool" Role="SeoLanguageTool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LanguagePage">
+        <PropertyRef Name="LanguagePageId" />
+      </Principal>
+      <Dependent Role="SeoLanguageTool">
+        <PropertyRef Name="LanguagePageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SeoLanguageTools_SeoPageTools">
+    <End Type="EStoreModel.SeoPageTool" Role="SeoPageTool" Multiplicity="1" />
+    <End Type="EStoreModel.SeoLanguageTool" Role="SeoLanguageTool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SeoPageTool">
+        <PropertyRef Name="ToolId" />
+      </Principal>
+      <Dependent Role="SeoLanguageTool">
+        <PropertyRef Name="ToolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SeoManagers_SeoPageTools">
+    <End Type="EStoreModel.SeoPageTool" Role="SeoPageTool" Multiplicity="1" />
+    <End Type="EStoreModel.SeoManager" Role="SeoManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SeoPageTool">
+        <PropertyRef Name="ToolId" />
+      </Principal>
+      <Dependent Role="SeoManager">
+        <PropertyRef Name="ToolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SeoPageTools_SysPages">
+    <End Type="EStoreModel.SysPage" Role="SysPage" Multiplicity="1" />
+    <End Type="EStoreModel.SeoPageTool" Role="SeoPageTool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysPage">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="SeoPageTool">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

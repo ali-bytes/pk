@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "AddSlider";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section SeoRender{
+
+    <title>تعديل عرض  </title>
+}
+
+<div class="panel panel-primary" id="sliderCtrl" ng-app="SliderApp" ng-controller="sliderCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل  عرض</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="ProductFrm">
+                <div class="form-group">
+                    <label for="ddl_offers" class="col-sm-3 control-label">العروض </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_offers" class="form-control" ng-model="selectedSlider" ng-change="GetSlider()" ng-options="i.Name for i in Sliders"></select>
+
+                    </div>
+                </div>
+                <hr style="border-width: 5px;" />
+
+                <div id="div_userDetails" ng-show="Id>0">
+
+
+                    <div class="form-group">
+                        <label for="ImageUrl" class="col-sm-3 control-label">الصورة</label>
+                        <div class="col-sm-9">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="file" id="ImageUrl" />
+                                </div>
+                                <div class="col-md-3">
+                                    <input class="btn btn-default " type="button" id="btnUpload" value=" رفـع " />
+                                </div>
+                                <div class="col-md-3">
+                                    <img style="width: 80px" ng-src={{ImageUrl}} id="imgUserImage" class="img-rounded" alt="Upload Image">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_Name" class="col-sm-3 control-label">عنوان العرض</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Name" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="عنوان العرض ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_NameEn" class="col-sm-3 control-label">عنوان العرض بالانجليزية</label>
+                        <div class="col-sm-4">
+                            <input id="txt_NameEn" ng-model="NameEn" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="عنوان العرض ">
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="txt_Berif" class="col-sm-3 control-label">النبذة</label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_Berif" dir="rtl" data-validate="required" data-validate-type="required" ng-model="Berif" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_BerifEn" class="col-sm-3 control-label">النبذة بالانجليزية </label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_BerifEn" dir="rtl" data-validate="required" data-validate-type="required" ng-model="BerifEn" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_Details" class="col-sm-3 control-label">التفاصيل</label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_Details" dir="rtl" data-validate="required" data-validate-type="required" ng-model="Details" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_DetailsEn" class="col-sm-3 control-label">التفاصيل بالانجليزية</label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_DetailsEn" dir="rtl" data-validate="required" data-validate-type="required" ng-model="DetailsEn" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_Sale" class="col-sm-3 control-label">سعر البيع</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Sale" ng-model="SalePrice" whole-number maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="سعر العرض ">
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                            <button type="submit" id="btnSave" ng-click="Delete()" ng-show="CanDelete" class="btn btn-default">حذف</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+                </div>
+</form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/SliderImageCtrl.js"></script>
+
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            angular.element('#sliderCtrl').scope().GetAllSliders();
+
+
+            $('#txt_Berif').ckeditor();
+            $('#txt_Details').ckeditor();
+
+
+            $('#txt_BerifEn').ckeditor();
+            $('#txt_DetailsEn').ckeditor();
+
+            
+            $("#btnUpload").click(function (evt) {
+
+                UploadScript.uploadFile(evt, 'ImageUrl', '#imgUserImage');
+            });
+        });
+    </script>
+
+</div>

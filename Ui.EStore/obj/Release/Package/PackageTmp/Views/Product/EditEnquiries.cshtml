@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "EditEnquiries";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section SeoRender{
+
+    <title>تعديل الاستفسارات </title>
+}
+<div class="panel panel-primary" id="enquiryCtrl" ng-app="EnquiryApp" ng-controller="enquiryCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل ماركة</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="enquiryFrm">
+
+                <div class="form-group">
+                    <label for="ddl_Product" class="col-sm-3 control-label">المنتجات </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Product" class="form-control" ng-model="selectedProduct" ng-change="GetAllEnquiries()" ng-options="i.Name for i in Products"></select>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddl_Brand" class="col-sm-3 control-label">الاستفسارات </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Brand" class="form-control" ng-model="selectedEnquiry" ng-change="GetEnquiry()" ng-options="i.Question for i in Enquiries"></select>
+
+                    </div>
+                </div>
+
+                <hr style="border-width: 5px;" />
+                <div id="div_userDetails" ng-show="Id>0">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            {{UserName}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            {{UserNameEn}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">البريد الالكترونى</label>
+                        <div class="col-sm-4">
+                            {{Email}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">الموبايل</label>
+                        <div class="col-sm-4">
+                            {{Mobile}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_Question" class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Question" ng-model="Question" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" >
+                        </div>
+                    </div>
+
+
+                  
+
+                    <div class="form-group">
+                        <label for="txt_Details" class="col-sm-3 control-label">الرد</label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_Details" dir="rtl" ng-model="Replay" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-inline">
+                        <label for="Chk_IsActive" class="col-sm-3 control-label"> عرض الاستفسار </label>
+                        <div class="col-sm-4  ">
+                            <input type="checkbox" id="Chk_IsActive" ng-model="IsActive" class=" checkbox-inline" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                            <button type="submit" id="btnSave" ng-click="Delete()" ng-show="CanDelete" class="btn btn-default">حذف</button>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/EnquiresCtrl.js"></script>
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            angular.element('#enquiryCtrl').scope().GetAllProducts();
+
+            $('#txt_Details').ckeditor();
+            $('#txt_Question').ckeditor();
+
+        });
+    </script>
+
+</div>

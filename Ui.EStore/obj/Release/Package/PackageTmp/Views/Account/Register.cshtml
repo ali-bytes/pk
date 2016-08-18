@@ -1,0 +1,102 @@
+﻿@model Ui.EStore.Models.RegisterModel
+
+@using Ui.EStore.Helpers
+
+@{
+    ViewBag.Title = "Register";
+}
+<div class="register">
+    <hgroup>
+        <h1>@CultureHelper.GetUserLanguageValue("عام", "تسجيل مستخدم جديد")
+ </h1>
+        @*<h2>Create a new account.</h2>*@
+    </hgroup>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <fieldset>
+            <legend>@CultureHelper.GetUserLanguageValue("عام", "سجل بياناتك") </legend>
+    @{
+        if (CultureHelper.GetLang() == Enums.Lang.Ar)
+        {
+            <ol>
+                <li class="row">
+            
+                    <label> @Html.LabelFor(m => m.UserName)</label>
+       
+                    @Html.TextBoxFor(m => m.UserName)
+                </li>
+                <li class="row">
+                    <label> @Html.LabelFor(m => m.Email)</label>
+                    @Html.TextBoxFor(m => m.Email)
+                </li>
+                <li class="row">
+                    <label> @Html.LabelFor(m => m.Phone)</label>
+                    @Html.TextBoxFor(m => m.Phone)
+                </li>
+                <li class="row">
+                    <label>
+                        @Html.LabelFor(m => m.Password)
+                    </label>
+                    @Html.PasswordFor(m => m.Password)
+                </li>
+                <li class="row">
+                    <label>
+                        @Html.LabelFor(m => m.ConfirmPassword)
+                    </label>
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                </li>
+                <li class="row">
+                    <label> @Html.LabelFor(m => m.Address)</label>
+                    @Html.TextBoxFor(m => m.Address)
+                </li>
+            </ol>
+        }
+        else
+        {
+            <ol>
+                <li class="row">
+            
+                    <label>UserName</label>
+       
+                    @Html.TextBoxFor(m => m.UserName)
+                </li>
+                <li class="row">
+                    <label> Email</label>
+                    @Html.TextBoxFor(m => m.Email)
+                </li>
+                <li class="row">
+                    <label> Phone</label>
+                    @Html.TextBoxFor(m => m.Phone)
+                </li>
+                <li class="row">
+                    <label>
+                      Password
+                    </label>
+                    @Html.PasswordFor(m => m.Password)
+                </li>
+                <li class="row">
+                    <label>
+                       ConfirmPassword
+                    </label>
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                </li>
+                <li class="row">
+                    <label>Address</label>
+                    @Html.TextBoxFor(m => m.Address)
+                </li>
+            </ol>
+
+        }
+    }
+            <div class="row">
+                <input type="submit" value="@CultureHelper.GetUserLanguageValue(" عام", "تسجيل")" />
+            </div>
+        </fieldset>
+
+    }
+
+</div>

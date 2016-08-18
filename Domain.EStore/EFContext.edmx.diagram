@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7394da60f1b44c45ad3ad2e99275302d" Name="Diagram1">
+        <EntityTypeShape EntityType="EStoreModel.Branch" Width="1.5" PointX="14.25" PointY="13.75" />
+        <EntityTypeShape EntityType="EStoreModel.Brand" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="EStoreModel.CartDetail" Width="1.5" PointX="18.5" PointY="1.625" />
+        <EntityTypeShape EntityType="EStoreModel.Cart" Width="1.5" PointX="16.25" PointY="1.125" />
+        <EntityTypeShape EntityType="EStoreModel.Category" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="EStoreModel.City" Width="1.5" PointX="12" PointY="14.5" />
+        <EntityTypeShape EntityType="EStoreModel.Customer" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="EStoreModel.delivery" Width="1.5" PointX="14" PointY="9.125" />
+        <EntityTypeShape EntityType="EStoreModel.Enquiry" Width="1.5" PointX="9.75" PointY="1.375" />
+        <EntityTypeShape EntityType="EStoreModel.FAQ" Width="1.5" PointX="0.75" PointY="16.875" />
+        <EntityTypeShape EntityType="EStoreModel.GetWay" Width="1.5" PointX="14" PointY="6" />
+        <EntityTypeShape EntityType="EStoreModel.Governate" Width="1.5" PointX="9.75" PointY="14.625" />
+        <EntityTypeShape EntityType="EStoreModel.HomeDetail" Width="1.5" PointX="16.75" PointY="5.875" />
+        <EntityTypeShape EntityType="EStoreModel.LestCategory" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="EStoreModel.MainCategory" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="EStoreModel.PrivilegeAction" Width="1.5" PointX="5.25" PointY="16.25" />
+        <EntityTypeShape EntityType="EStoreModel.PrivilegeCategory" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="EStoreModel.Privilege" Width="1.5" PointX="3" PointY="13.375" />
+        <EntityTypeShape EntityType="EStoreModel.ProductImage" Width="1.5" PointX="9.75" PointY="8" />
+        <EntityTypeShape EntityType="EStoreModel.Product" Width="1.5" PointX="7.5" PointY="2.5" />
+        <EntityTypeShape EntityType="EStoreModel.ProductShow" Width="1.5" PointX="9.75" PointY="5.25" />
+        <EntityTypeShape EntityType="EStoreModel.Rating" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="EStoreModel.RulePrivilege" Width="1.5" PointX="5.25" PointY="12.625" />
+        <EntityTypeShape EntityType="EStoreModel.Rule" Width="1.5" PointX="3" PointY="10.625" />
+        <EntityTypeShape EntityType="EStoreModel.SliderImage" Width="1.5" PointX="16.75" PointY="9.875" />
+        <EntityTypeShape EntityType="EStoreModel.Speciality" Width="1.5" PointX="9.75" PointY="11.875" />
+        <EntityTypeShape EntityType="EStoreModel.SysEmail" Width="1.5" PointX="16.75" PointY="13.875" />
+        <EntityTypeShape EntityType="EStoreModel.SysNew" Width="1.5" PointX="16.75" PointY="16.875" />
+        <EntityTypeShape EntityType="EStoreModel.UserOperation" Width="1.5" PointX="7.5" PointY="10.375" />
+        <EntityTypeShape EntityType="EStoreModel.UserOperationType" Width="1.5" PointX="5.25" PointY="19.75" />
+        <EntityTypeShape EntityType="EStoreModel.UserProfile" Width="1.5" PointX="14" PointY="1.625" />
+        <EntityTypeShape EntityType="EStoreModel.User" Width="1.5" PointX="5.25" PointY="8.375" />
+        <EntityTypeShape EntityType="EStoreModel.ViewControl" Width="1.5" PointX="7.5" PointY="16.375" />
+        <EntityTypeShape EntityType="EStoreModel.webpages_Membership" Width="1.5" PointX="9.75" PointY="17.875" />
+        <EntityTypeShape EntityType="EStoreModel.webpages_OAuthMembership" Width="1.5" PointX="18.75" PointY="4.875" />
+        <EntityTypeShape EntityType="EStoreModel.webpages_Roles" Width="1.5" PointX="11.75" PointY="2" />
+        <AssociationConnector Association="EStoreModel.FK_Branches_Cities" />
+        <AssociationConnector Association="EStoreModel.FK_Branches_Governates" />
+        <AssociationConnector Association="EStoreModel.FK_Products_Brands" />
+        <AssociationConnector Association="EStoreModel.FK_CartDetails_Carts" />
+        <AssociationConnector Association="EStoreModel.FK_Carts_deliveries" />
+        <AssociationConnector Association="EStoreModel.FK_Carts_GetWaies" />
+        <AssociationConnector Association="EStoreModel.FK_Carts_UserProfile" />
+        <AssociationConnector Association="EStoreModel.FK_Categories_MainCategories" />
+        <AssociationConnector Association="EStoreModel.FK_LestCategories_Categories" />
+        <AssociationConnector Association="EStoreModel.FK_Products_Categories" />
+        <AssociationConnector Association="EStoreModel.FK_Cities_Governates" />
+        <AssociationConnector Association="EStoreModel.FK_Enquiries_Products" />
+        <AssociationConnector Association="EStoreModel.FK_LestCategories_MainCategories" />
+        <AssociationConnector Association="EStoreModel.FK_Products_LestCategory" />
+        <AssociationConnector Association="EStoreModel.FK_Products_MainCategories" />
+        <AssociationConnector Association="EStoreModel.FK_PrivilegeActions_Privileges" />
+        <AssociationConnector Association="EStoreModel.FK_ViewControls_PrivilegeActions" />
+        <AssociationConnector Association="EStoreModel.FK_Privileges_PrivilegeCategories" />
+        <AssociationConnector Association="EStoreModel.FK_RulePrivileges_Privileges" />
+        <AssociationConnector Association="EStoreModel.FK_ProductImages_Products" />
+        <AssociationConnector Association="EStoreModel.FK_Table_Products" />
+        <AssociationConnector Association="EStoreModel.FK_RulePrivileges_Rules" />
+        <AssociationConnector Association="EStoreModel.FK_Users_Rules" />
+        <AssociationConnector Association="EStoreModel.FK_UserOperations_UserOperationTypes" />
+        <AssociationConnector Association="EStoreModel.FK_UserOperations_Users" />
+        <AssociationConnector Association="EStoreModel.webpages_UsersInRoles" />
+        <EntityTypeShape EntityType="EStoreModel.LanguagePage" Width="1.5" PointX="21.625" PointY="9.375" />
+        <EntityTypeShape EntityType="EStoreModel.Language" Width="1.5" PointX="19.375" PointY="12.5" />
+        <EntityTypeShape EntityType="EStoreModel.LanguageTool" Width="1.5" PointX="23.875" PointY="10.875" />
+        <EntityTypeShape EntityType="EStoreModel.PageTool" Width="1.5" PointX="21.625" PointY="12.5" />
+        <EntityTypeShape EntityType="EStoreModel.SysPage" Width="1.5" PointX="19.375" PointY="9.625" />
+        <AssociationConnector Association="EStoreModel.FK_LanguagePages_Languages" />
+        <AssociationConnector Association="EStoreModel.FK_LanguagePages_Pages" />
+        <AssociationConnector Association="EStoreModel.FK_LanguageTools_LanguagePages" />
+        <AssociationConnector Association="EStoreModel.FK_LanguageTools_PageTools" />
+        <AssociationConnector Association="EStoreModel.FK_PageTools_Pages" />
+        <EntityTypeShape EntityType="EStoreModel.SeoLanguageTool" Width="1.5" PointX="26.875" PointY="6.875" />
+        <EntityTypeShape EntityType="EStoreModel.SeoManager" Width="1.5" PointX="23.875" PointY="5.375" />
+        <EntityTypeShape EntityType="EStoreModel.SeoPageTool" Width="1.5" PointX="21.625" PointY="5.375" />
+        <AssociationConnector Association="EStoreModel.FK_SeoLanguageTools_LanguagePages" />
+        <AssociationConnector Association="EStoreModel.FK_SeoLanguageTools_SeoPageTools" />
+        <AssociationConnector Association="EStoreModel.FK_SeoManagers_SeoPageTools" />
+        <AssociationConnector Association="EStoreModel.FK_SeoPageTools_SysPages" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

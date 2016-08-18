@@ -1,0 +1,37 @@
+﻿@using Domain.EStore
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section SeoRender{
+    <title> هنداوى : اتصل بنا </title>
+}
+<div id="breadcrumb" style="padding: 12px 10px 8px 10px;" style="padding: 12px 10px 8px 10px;">
+    <span></span>
+    <a href="/Home">@CultureHelper.GetUserLanguageValue("عام", "الصفحة الرئيسية") </a><span class="span"></span><a href="/AboutUs/">@CultureHelper.GetUserLanguageValue("عام", "أتصل بنا") </a>
+
+
+</div>
+<div id="about">
+    @{
+        HomeDetail about = ContactUsController.AboutUsDetails();
+        if (CultureHelper.GetLang() == Enums.Lang.Ar)
+        {
+            <h3>@about.Title</h3>
+            <img src=" @about.ImageUrl " />
+
+            <div class="p">@Html.Raw(about.Details)</div>
+        }
+        else
+        {
+            <h3>@about.TitleEn</h3>
+            <img src=" @about.ImageUrl " />
+
+            <div class="p">@Html.Raw(about.DetailsEn)</div>
+        }
+
+
+    }
+</div>

@@ -1,0 +1,82 @@
+﻿@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-container">
+    <div class="page-container-wrap">
+        @section SeoRender{
+            <title> هنداوى : المنتجات </title>
+
+
+
+        }
+        <div id="breadcrumb" style="padding: 12px 10px 8px 10px;" style="padding: 12px 10px 8px 10px;">
+            <span></span>
+            <a href="/Home">@CultureHelper.GetUserLanguageValue("عام", "الصفحة الرئيسية")</a><span class="span"></span><a href="/Product/">@CultureHelper.GetUserLanguageValue("عام", "المنتجات") </a>
+
+
+        </div>
+        <div class="page-style">
+           
+            <div class="Categories-style">
+                @{
+                    var mainCategories = ProductController.GetMainCategoryList();
+                    foreach (var mainCategory in mainCategories)
+                    {
+                        if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                        {
+                            <div class="Categories-title-style">
+                                <img src="@mainCategory.ImageUrl" />
+             
+                                <a href="/Product/MainCategoryView/@mainCategory.Id-@mainCategory.Name.ClearString()">@mainCategory.Name</a>
+                            </div>
+                            <ul>
+                                @{
+                                    var categories = ProductController.GetCategoriesByMainCategoryId(mainCategory.Id);
+                                    foreach (var category in categories)
+                                    {
+                                        <li>
+                                            <img src=" @category.ImageUrl " />
+                       
+                      
+                                            <a href="/Product/CategoryProduct/@category.Id- @category.Name.ClearString()"> @category.Name</a>
+                     
+                                        </li>
+                                    }
+                                }
+                        
+                            </ul>
+                        }
+                        else
+                        {
+                            <div class="Categories-title-style">
+                                <img src="@mainCategory.ImageUrl" />
+             
+                                <a href="/Product/MainCategoryView/@mainCategory.Id-@mainCategory.NameEn.ClearString()">@mainCategory.NameEn</a>
+                            </div>
+                            <ul>
+                                @{
+                                    var categories = ProductController.GetCategoriesByMainCategoryId(mainCategory.Id);
+                                    foreach (var category in categories)
+                                    {
+                                        <li>
+                                            <img src=" @category.ImageUrl " />
+                       
+                      
+                                            <a href="/Product/CategoryProduct/@category.Id- @category.NameEn.ClearString()"> @category.NameEn</a>
+                     
+                                        </li>
+                                    }
+                                }
+                        
+                            </ul>
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

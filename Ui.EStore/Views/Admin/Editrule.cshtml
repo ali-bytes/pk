@@ -1,0 +1,110 @@
+﻿@using Domain.EStore
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+
+@{
+    ViewBag.Title = "Editrule";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <img src="/Images/edituser.png" style="width: 32px; height: 32px;" />
+       تعديل الصلاحيات
+    </div>
+    <div class="panel-body">
+
+
+        <form class="form-horizontal" id="formEditUser" role="form" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="ddl_User" class="col-sm-3 control-label">أختر الصلاحية</label>
+                <div class="col-sm-9">
+                    <select id="ddl_Roles" class="form-control">
+                        <option value="-1">أختر الصلاحية</option>
+                        @{
+                            List<Rule> rules = AdminController.GetSysRule();
+                            foreach (Rule rule in rules)
+                            {
+                               
+                                    <option value="@rule.Id">@rule.Name</option>
+                              
+                            }
+                        }
+                    </select>
+
+                </div>
+            </div>
+            <hr style="border-width: 5px;" />
+
+            <div id="div_userDetails" style="display: none;">
+
+                <table class="table table-striped table-bordered" id="tb_Roles">
+                    <thead>
+                        <tr>
+                           
+                                <th>الحالة</th>
+                                <th>اسم الصلاحية</th>
+                                <th>أسم الفئة</th>
+                                <th>المكان</th>
+
+                                <th>الحدث</th>
+                           
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-default" id="btnSaveChanges" type="submit">Save</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+<div id="div_Script">
+    <script src="~/Scripts/Controllers/adminScript.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+        function () {
+
+
+
+
+
+            $("#ddl_Roles").change(function () {
+
+                if ($(this).val() == -1) {
+                    $("#formEditUser")[0].reset();
+
+                    $("#div_userDetails").hide();
+                }
+                else {
+                    $("#div_userDetails").show();
+
+                    adminScript.getRoleDetails($(this).val());
+                }
+
+            });
+
+            $("#btnSaveChanges").click(function (evt) {
+                evt.preventDefault();
+                adminScript.saveRoleDetails();
+            });
+
+        });
+    </script>
+
+</div>
+
+
+
+

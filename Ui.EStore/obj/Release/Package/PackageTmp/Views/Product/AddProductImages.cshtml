@@ -1,0 +1,92 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>أضافة صورة منتج  </title>
+}
+
+<div class="panel panel-primary" id="productimageCtrl" ng-app="ProductImageApp" ng-controller="productimageCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">أضافة صورة منتج</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="ProductFrm">
+
+                <div class="form-group">
+                    <label for="ImageUrl" class="col-sm-3 control-label">الصورة</label>
+                    <div class="col-sm-9">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="file" id="ImageUrl" />
+                            </div>
+                            <div class="col-md-3">
+                                <input class="btn btn-default " type="button" id="btnUpload" value=" رفـع " />
+                            </div>
+                            <div class="col-md-3">
+                                <img style="width: 80px" ng-src={{ImageUrl}} id="imgUserImage" class="img-rounded" alt="Upload Image">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddl_Product" class="col-sm-3 control-label">المنتج </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Product" class="form-control" ng-model="selectedProduct" ng-change="GetProduct()" ng-options="i.Name for i in Products"></select>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txt_Berif" class="col-sm-3 control-label">النبذة</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_Berif" dir="rtl" data-validate="required" data-validate-type="required" ng-model="Berif" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/ProductImageCtrl.js"></script>
+
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#txt_Berif').ckeditor();
+         
+            angular.element('#productimageCtrl').scope().GetAllProducts();
+         
+
+            $("#btnUpload").click(function (evt) {
+
+                UploadScript.uploadFile(evt, 'ImageUrl', '#imgUserImage');
+            });
+        });
+    </script>
+
+</div>

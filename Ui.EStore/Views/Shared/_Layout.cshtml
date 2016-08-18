@@ -1,0 +1,476 @@
+﻿@using System.Web.Optimization
+@using Domain.EStore.Repositories
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="@CultureHelper.GetCurrentNeutralCulture()" dir="@(CultureHelper.IsRighToLeft() ? "rtl" : "ltr")">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    @{
+        var title = AdminController.TitleDetails();
+        ViewBag.Title = title.Title;
+
+    }
+    <!--  SEO STUFF START HERE -->
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content='@ViewBag.keywords' />
+    <meta name="description" content='@ViewBag.description' />
+    <meta name="author" content="@ViewBag.author" />
+    <meta name="robots" content="follow, index" />
+    <!--  SEO STUFF END -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <script src="~/Scripts/js.js"></script>
+   
+    @Scripts.Render("~/bundles/MainJs")
+
+
+    @RenderSection("SeoRender", false)
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1051750851520783',
+                xfbml: true,
+                version: 'v2.1'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "http://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    @{
+        if (CultureHelper.GetLang() == Enums.Lang.Ar)
+        { 
+            @Styles.Render("~/bundles/MainCSS")
+            <link href="~/Contents/style2.css" rel="stylesheet" />
+            <link href="~/Contents/css3.css" rel="stylesheet" />
+            <link href="~/Contents/responsive.css" rel="stylesheet" />
+
+        }
+        else
+        {
+            <link href="~/Contents/styleEn.css" rel="stylesheet" />
+            <link href="~/Contents/responsive.css" rel="stylesheet" />
+            <link href="~/Contents/css3-en.css" rel="stylesheet" />
+            <link href="~/Contents/style2-en.css" rel="stylesheet" />
+        }
+}
+
+</head>
+<body>
+    <div class="top_line">
+
+
+
+
+
+    </div>
+
+
+
+    <div id="header">
+        <div class="center" id="header-content">
+            <div id="header-top">
+
+
+
+                <div id="login">
+
+                    <div id="lang" class="col-sm-2 col-md-2">
+
+                        @using (Html.BeginForm("SetCulture", "Home"))
+                        {
+                            HttpCookie cookie = Request.Cookies["_culture"];
+                            if (cookie.Value == "ar-EG")
+                            {
+                                <input name="culture" id="en-us" value="en" type="submit" />
+                            }
+                            else
+                            {
+                                <input name="culture" id="ar-EG" value="ar" type="submit" />
+                            }
+                        }
+                    </div>
+
+                    @if (Request.IsAuthenticated)
+                    {
+
+                        AccountController ac = new AccountController();
+                        ac.GetCart(WebSecurity.CurrentUserName);
+                        <text>
+
+                            <li class="login-row" style="color: #fff;">
+                                مرحبا . . @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!<span><img src="/images/user.png" /></span>
+                            </li>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <li class="login-row"><a href="javascript:document.getElementById('logoutForm').submit()"> @CultureHelper.GetUserLanguageValue("عام", "تسجيل الخروج")</a><span><img src="/images/click.png" /></span></li>
+
+
+                            }
+
+                        </text>
+                    }
+
+                    else
+                    {
+                        <div>
+                        </div>
+
+                    }
+
+                </div>
+                @{
+                    if (!Request.IsAuthenticated)
+                    {
+                        <li class="login-row">@Html.ActionLink(CultureHelper.GetUserLanguageValue("عام", "تسجيل دخول"), "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })<span><img src="/images/click.png" /></span></li>
+                        <li class="login-row">@Html.ActionLink(CultureHelper.GetUserLanguageValue("عام", "مستخدم جديد"), "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })<span><img src="/images/user.png" /></span></li>
+                    }}
+                <li class="login-row">
+
+                    <span></span>@Html.ActionLink(string.Format(" ({1})    ({0})", new UserSession().MyCartPrductCache.ToString("c"), new UserSession().MyCartPrductCount), "MyCart", "Home", routeValues: null, htmlAttributes: new { id = "mycart" })
+                </li>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="follow">
+
+                <ul>
+                    <li><a href="#"></a></li>
+                    <li><a href="https://twitter.com/pinkyturfashion"></a></li>  
+                      <li><a href="https://www.facebook.com/pinkyturkishfashion"> </a></li>
+                  
+                    <li><a href="https://instagram.com/pinkyturkishfashion"></a></li>
+                </ul>
+           
+
+            </div><!--follow-->
+
+            <div id="search">
+                @using (Html.BeginForm("SearchProduct", "Product"))
+                {
+                    <span></span>
+                    <input type="text" name="name" />
+
+                    <input type="submit" value=" @CultureHelper.GetUserLanguageValue("عام", "بحث") " />
+                }
+            </div>
+    
+            <div id="logo">
+                <a href="/Home">
+                    
+                    <img src="@title.ImageUrl" />
+                </a>
+          
+            </div>
+            <div id="contacts">
+                <div class="contacts"><span>Tel: </span>01094402610</div>
+
+                <div class="contacts">
+                    <span> Whatsapp:</span> 01001501190 – 01112294566
+                </div>
+            </div>
+        </div><!--header-top-->
+    </div><!--login-->
+
+    <div id="drop">
+
+        @CultureHelper.GetUserLanguageValue("عام", "القائمة")
+    </div>
+    <div id="nav">
+        <ul>
+            <li class="first-menu" id="home"><a href="/Home/"></a></li>
+
+            <li class="first-menu" id="marks">
+                <a href="#">@CultureHelper.GetUserLanguageValue("عام", "الماركات") </a>
+                @{
+
+                    <ul id="first-menu">
+                        @{
+                            var Brands = ProductController.GetAlBrands();
+                            foreach (var brand in Brands)
+                            {
+                                <li>
+
+                                    @{
+                                if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                                {
+
+                                    <a href="/Product/Brands/@brand.Id- @brand.Name.ClearString()"> @brand.Name</a>
+                                }
+                                else
+                                {
+                                    //.ClearString()
+                                    <a href="/Product/Brands/@brand.Id- @brand.NameEn"> @brand.NameEn</a>
+                                }
+                                    }
+                                </li>
+                            }
+                        }
+                    </ul>
+
+                }
+            </li>
+            @{
+    var mainCategories = ProductController.GetMainCategoryList().Take(5);
+    foreach (var mainCategory in mainCategories)
+    {
+
+        <li class="first-menu third">
+            @{
+        if (CultureHelper.GetLang() == Enums.Lang.Ar)
+        {
+
+            <a href="/Product/MainCategoryView/@mainCategory.Id-@mainCategory.Name.ClearString()">@mainCategory.Name</a>
+        }
+        else
+        {
+            <a href="/Product/MainCategoryView/@mainCategory.Id-@mainCategory.NameEn.ClearString()">@mainCategory.NameEn</a>
+
+        }
+            }
+            <ul id="first-menu">
+                @{
+        var categories = ProductController.GetCategoriesByMainCategoryId(mainCategory.Id);
+        foreach (var category in categories)
+        {
+            <li class="socend-menu">
+
+                @{
+            if (CultureHelper.GetLang() == Enums.Lang.Ar)
+            {
+                <a href="/Product/CategoryProduct/@category.Id- @category.Name.ClearString()"> @category.Name</a>
+            }
+            else
+            {
+                <a href="/Product/CategoryProduct/@category.Id- @category.NameEn.ClearString()"> @category.NameEn</a>
+
+            }
+                }
+                @{
+
+            var lestcategories = ProductController.GetLestCategoriesByCategoryId(category.Id);
+            <ul id="socend-menu" class="UlCategory">
+                @{
+            foreach (var lestcategory in lestcategories)
+            {
+                if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                {
+
+                    <li>
+                        <a href="/Product/LestCategoryView/@lestcategory.Id- @lestcategory.Name.ClearString()"> @lestcategory.Name</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="/Product/LestCategoryView/@lestcategory.Id- @lestcategory.NameEn.ClearString()"> @lestcategory.NameEn</a>
+                    </li>
+                }
+            }
+                }
+            </ul>
+                }
+
+
+            </li>
+        }
+                }
+
+            </ul>
+
+        </li>
+
+    }
+}
+
+
+
+            <div id="more-menu">
+
+                <h3>@CultureHelper.GetUserLanguageValue("عام", "المزيد") <span></span> </h3>
+                <div id="more-menu-slide">
+                    @{
+                        var MoreCategories = ProductController.GetMainCategoryList().Skip(3);
+                        foreach (var mainCategory in MoreCategories)
+                        {
+                            if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                            {
+                                <div class="more-menu" value="@mainCategory.Id">
+                                    <a href="/Product/MainCategoryView/@mainCategory.Id-@mainCategory.Name.ClearString()">  @mainCategory.Name</a>
+
+                                    <div id="sub-more-menu">
+
+
+                                        @{
+                                var categories = ProductController.GetCategoriesByMainCategoryId(mainCategory.Id);
+                                foreach (var category in categories)
+                                {
+                                    <div class="sub-more-menu">
+
+
+
+                                        <a href="/Product/CategoryProduct/@category.Id- @category.Name.ClearString()"> @category.Name</a>
+
+                                    </div>
+
+                                }
+                                        }
+
+
+
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="more-menu" value="@mainCategory.Id">
+                                    <a href="/Product/MainCategoryView/@mainCategory.Id-@mainCategory.NameEn.ClearString()">  @mainCategory.NameEn</a>
+
+                                    <div id="sub-more-menu">
+
+
+                                        @{
+                                var categories = ProductController.GetCategoriesByMainCategoryId(mainCategory.Id);
+                                foreach (var category in categories)
+                                {
+                                    <div class="sub-more-menu">
+
+
+
+                                        <a href="/Product/CategoryProduct/@category.Id- @category.NameEn.ClearString()"> @category.NameEn</a>
+
+                                    </div>
+
+                                }
+                                        }
+
+
+
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+
+                </div>
+
+            </div>
+
+        </ul>
+
+
+
+
+    </div>
+
+    <!--header-->
+    @RenderBody()
+
+    <div class="center" id="footer">
+        <div id="footer-content">
+            <div class="footer">
+                <h3> @CultureHelper.GetUserLanguageValue("عام", "خدمة العملاء") </h3>
+                <p> @CultureHelper.GetUserLanguageValue("عام", "تابعونا على")  . .</p>
+                <div id="follow">
+
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="https://twitter.com/pinkyturfashion"></a></li>
+                        <li><a href="https://www.facebook.com/pinkyturkishfashion"> </a></li>
+
+                        <li><a href="https://instagram.com/pinkyturkishfashion"></a></li>
+                    </ul>
+
+
+                </div><!--follow-->
+                <ul>
+
+                    <li><a href="/GetWay/">@CultureHelper.GetUserLanguageValue("عام", "طرق الدفع") </a></li>
+                    <li><a href="/Product/ShowDelevery/">@CultureHelper.GetUserLanguageValue("عام", "طرق الشحن") </a></li>
+                    <li><a href="/Home/FAQ/">@CultureHelper.GetUserLanguageValue("عام", "اسئلة واجوبة") </a></li>
+                </ul>
+            </div>
+            <div class="footer">
+                <h3>@CultureHelper.GetUserLanguageValue("عام", "حسابى") </h3>
+                <ul>
+
+                    <li>@Html.ActionLink(CultureHelper.GetUserLanguageValue("عام", "تسجيل دخول"), "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    <li>@Html.ActionLink(CultureHelper.GetUserLanguageValue("عام", "مستخدم جديد"), "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li><a href="/Home/MyCart"> @CultureHelper.GetUserLanguageValue("عام", "عربة التسوق") </a></li>
+                    <li><a href="/Branche/PayBranch/">@CultureHelper.GetUserLanguageValue("عام", "اشترى من فروعنا") </a></li>
+                </ul>
+            </div>
+            <div class="footer">
+                <h3> @CultureHelper.GetUserLanguageValue("عام", "روابط") </h3>
+                <ul>
+                    <li><a href="/Home/">@CultureHelper.GetUserLanguageValue("عام", "الرئيسية") </a></li>
+                    <li><a href="/Product/">@CultureHelper.GetUserLanguageValue("عام", "المنتجات") </a></li>
+                    <li><a href="/AboutUs/"> @CultureHelper.GetUserLanguageValue("عام", "من نحن") </a></li>
+                    <li><a href="/ContactUs/"> @CultureHelper.GetUserLanguageValue("عام", "اتصل بنا") </a></li>
+                </ul>
+            </div>
+
+            <div style="clear:both"></div>
+        </div><!--footer-content-->
+        <p id="copyright">
+            Copyright © 2015 DukkanPinky. All Rights Reversed. Design by <a target="_blank" style="color: orangered;" href="http://www.pioneers-solutions.com/"> @CultureHelper.GetUserLanguageValue("عام", "pioneers") </a> co
+        </p>
+    </div><!--center-->
+
+
+
+    <script>
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+
+</body>
+@RenderSection("ScriptLoad", false)
+</html>
+
+<script src="~/Scripts/jquery.cslider.js"></script>
+<script src="~/Scripts/modernizr.custom.28468.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $('#da-slider').cslider({
+            autoplay: true,
+            bgincrement: 450
+        });
+
+    });
+</script>	</section>

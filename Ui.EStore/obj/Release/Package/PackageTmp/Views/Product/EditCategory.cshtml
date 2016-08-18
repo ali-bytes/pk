@@ -1,0 +1,108 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>تعديل فئة فرعية  </title>
+}
+
+<div class="panel panel-primary" id="categoryCtrl" ng-app="CategoryApp" ng-controller="categoryCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل فئة فرعية</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="categoryFrm">
+
+                <div class="form-group">
+                    <label for="ddl_Category" class="col-sm-3 control-label">الفئات الفرعية </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Category" class="form-control" ng-model="selectedCategory" ng-change="GetCategory()" ng-options="i.Name for i in Categories"></select>
+
+                    </div>
+                </div>
+                <hr style="border-width: 5px;" />
+
+                <div id="div_userDetails" ng-show="Id>0">
+
+
+                    <div class="form-group">
+                        <label for="ImageUrl" class="col-sm-3 control-label">الصورة</label>
+                        <div class="col-sm-9">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="file" id="ImageUrl" />
+                                </div>
+                                <div class="col-md-3">
+                                    <input class="btn btn-default " type="button" id="btnUpload" value=" رفـع " />
+                                </div>
+                                <div class="col-md-3">
+                                    <img style="width: 80px" ng-src={{ImageUrl}} id="imgUserImage" class="img-rounded" alt="Upload Image">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="txt_Title" class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Title" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم الفئة ">
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label for="txt_TitleEn" class="col-sm-3 control-label">الاسم</label>
+                    <div class="col-sm-4">
+                        <input id="txt_TitleEn" ng-model="NameEn" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم الفئة ">
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        <label for="ddl_MainCategory" class="col-sm-3 control-label">الفئة الرئيسية </label>
+                        <div class="col-sm-9">
+                            <select id="ddl_MainCategory" class="form-control" ng-model="selectedMainCategory" ng-options="i.Name for i in MainCategories"></select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                            <button type="submit" id="btnDelete" ng-show="CanDelete" ng-click="Delete()" class="btn btn-default">حذف</button>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/CategoryCtrl.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            angular.element('#categoryCtrl').scope().GetAllCategories();
+
+            angular.element('#categoryCtrl').scope().GetAllMainCategories();
+
+            $("#btnUpload").click(function (evt) {
+
+                UploadScript.uploadFile(evt, 'ImageUrl', '#imgUserImage');
+            });
+        });
+    </script>
+
+</div>

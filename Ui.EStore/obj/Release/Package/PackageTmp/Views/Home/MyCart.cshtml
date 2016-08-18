@@ -1,0 +1,221 @@
+﻿@using Domain.EStore
+@using Domain.EStore.Repositories
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@model MyCartPrduct
+@{
+ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section SeoRender{
+
+    <title>سلة المشتريات خاصتى  </title>
+}
+
+<div class="register">
+    <h1>
+        <label for="ddl_Delevey" class="col-sm-3 control-label">@CultureHelper.GetUserLanguageValue("عام", "سلة المشتريات خاصتى") </label>
+    </h1>
+    <div id="deleveyCtrl" ng-app="DeleveyApp" ng-controller="deleveyCtrl">
+
+      
+
+        <div>
+           
+            <div id="items-table" class="table table-bordered table-hover table-condensed table-striped white">
+            
+                @{
+                    if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                    {
+
+                        <div id="table-header" class="table-row">
+                            <div class="cell">
+                                المسلسل
+                            </div>
+                            <div class="cell">
+                                الاسم
+                            </div>
+                            <div class="cell">
+                                السعر
+                            </div>
+                            <div class="cell">
+                                الكمية
+                            </div>
+
+                            <div class="cell">
+                                الاجمالى
+                            </div>
+                            <div class="cell">
+                                حذف من السلة
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div id="table-header" class="table-row">
+                            <div class="cell">
+                                NO.
+                            </div>
+                            <div class="cell">
+                                Name
+                            </div>
+                            <div class="cell">
+                                Price
+                            </div>
+                            <div class="cell">
+                                Quntaty
+                            </div>
+
+                            <div class="cell">
+                                Total
+                            </div>
+                            <div class="cell">
+                                Remove
+                            </div>
+                        </div>
+                    }
+
+                }
+
+                <div class="table-row" ng-repeat="i in MyCart.MyCartDetailse">
+                    <div class="cell">
+                        {{$index+1}}
+                    </div>
+                    <div class="cell">
+                        {{i.ProductName}}
+                    </div>
+                    <div class="cell">
+                        {{i.Price}}
+                    </div>
+                    <div class="cell">
+                        <input id="txt_Quntaty" class="count"ng-change="CheckQuntaty(i.AvilabelQuntaty,i.Quntaty,i.Id)" ng-model="i.Quntaty" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="الكمية المطلوبة ">
+                        
+                        @*{{i.Quntaty}}*@
+                    </div>
+
+                    <div class="cell">
+                        {{i.Total|number:2}}
+                    </div>
+                    <div class="delete" style="text-align: center">
+                        <button class="btn btn-danger" type="button" ng-click="DeleteItem(i.Id)">
+                            <i class="icon-white icon-remove"></i>&nbsp;حذف
+                        </button>
+                    </div>
+                </div>
+                @{
+                    if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                    {
+                        <div class="end-row">
+                    <span>
+
+                        الاجمالى
+                    </span>
+                  
+                    <span>
+                        {{totalItems|number:2}}
+                    </span>
+                </div>
+                    }
+                    else
+                    {
+                        <div class="end-row">
+                    <span>
+
+                        Total
+                    </span>
+                  
+                    <span>
+                        {{totalItems|number:2}}
+                    </span>
+                </div>
+                    }
+                }
+                    
+           
+                
+            </div>
+            <div style="clear: both;"></div>
+           
+            <button type="submit" id="SaveMyCart" ng-click="ShowDelevery()" class="btn btn-default"><i> @CultureHelper.GetUserLanguageValue("عام", "اكمال عملية الشراء")  </i></button>
+           
+            <span class="follow-marketing"> @Html.ActionLink( CultureHelper.GetUserLanguageValue("عام", "تابع التسوق")  , "Index", "Home", routeValues: null, htmlAttributes: new { id = "ReturnHome" })</span>
+            <hr />
+        </div>
+    
+        <div ng-show="Complite">
+
+            <h2 style="padding-right: 0px;padding-top: 0px;" class="socend-title"> @CultureHelper.GetUserLanguageValue("عام", "انهاء الطلب")</h2>
+            <span style="margin-right: ;">@CultureHelper.GetUserLanguageValue("عام", "اختر طريقة الشحن") </span> <select id="ddl_Delevey" class="form-control" ng-model="selectedDelevey" ng-change="GetdeliveryCost()" ng-options="i.Name for i in Deleveries"></select>
+
+
+
+            <div>
+
+<h3 style="height: 45px; line-height: 45px; color: #fff; background: #5b519d; padding-right: 10px; font-weight: normal; ">@CultureHelper.GetUserLanguageValue("عام", "اختر طريقة دفع") </h3>
+                <div id="div_Display">
+
+                    <div style="float: none;width: 60%;padding-bottom: 20px;border-bottom: 1px dotted #dedede;" class="pay-box" ng-repeat="i in GetWays">
+
+                        <button style="text-align: right;" type="submit" id="btnE" ng-click="GetGetWay(i.Id)" class="btn btn-default ">
+                          @{
+                              if (CultureHelper.GetLang() == Enums.Lang.Ar)
+
+                              {
+                                  <h2>{{i.Name}}</h2>
+                              }
+                              else
+                              {
+                                  <h2>{{i.NameEn}}</h2>
+                              }
+                          }
+                              
+                            <img style="height: 150px;width: 30%;" ng-src={{i.ImageUrl}} class="img-rounded" alt="Pay Image">
+                        </button>
+                        <div style="clear: both;"></div>
+                        <div>
+                            <p ng-bind-html="i.Berif"></p>
+                        </div>
+                       
+                    </div>
+                    <div style="clear: both;"></div>
+               
+                </div>
+              
+                <div class="end-row">
+                    <span>
+                       @CultureHelper.GetUserLanguageValue("عام", "تكلفة الشحن")  
+                    </span>
+
+                    <span>
+                        {{Cost|number:2}}
+                    </span>
+                </div>
+
+                <div class="end-row">
+                    <span> @CultureHelper.GetUserLanguageValue("عام", "الصافى")   </span>
+                    <span>{{CartTotal|number:2}}</span>
+                    
+                </div>
+
+                <div style="clear: both"></div>
+                <button type="submit" id="SaveMyCart" ng-click="SaveMyCart()" class="btn btn-default"><i> @CultureHelper.GetUserLanguageValue("عام", "اتمام الطلب")   </i></button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="~/Scripts/Controllers/DeleveryCtrl.js"></script>
+    <script src="~/Scripts/AngularJs/underscore.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                angular.element('#deleveyCtrl').scope().GetAllGetWaies();
+
+                angular.element('#deleveyCtrl').scope().GetAllDeleveries();
+                angular.element('#deleveyCtrl').scope().GetMyCart();
+
+            });
+        </script>
+</div>

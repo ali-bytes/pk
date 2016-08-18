@@ -1,0 +1,33 @@
+﻿@using Domain.EStore.Repositories
+<ul>
+    <li class="login-row">
+        <span></span>@Html.ActionLink(string.Format(" سلة المشتريات الخاصة بى ({0})", new UserSession().MyCartPrductCount), "MyCart", "Home", routeValues: null, htmlAttributes: new { id = "mycart" })
+    </li>
+    @if (Request.IsAuthenticated)
+    {
+        <text>
+
+            <li class="login-row">
+                مرحبا . . @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!<span><img src="/images/user.png" /></span>
+            </li>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <li class="login-row"><a href="javascript:document.getElementById('logoutForm').submit()">تسجيل الخروج</a><span><img src="/images/click.png" /></span></li>
+
+
+            }
+
+    </text>
+        }
+
+        else
+        {
+
+        <li class="login-row">@Html.ActionLink("مستخدم جديد", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })<span><img src="/images/user.png" /></span></li>
+        <li class="login-row">@Html.ActionLink("تسجيل الدخول", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })<span><img src="/images/click.png" /></span></li>
+
+        }
+
+</ul>

@@ -1,0 +1,83 @@
+﻿
+@{
+     
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section SeoRender{
+
+    <title>عنوان الموقع </title>
+}
+
+
+<div class="panel panel-primary" ng-app="aboutUs" ng-controller="aboutUsCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">العنوان</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="aboutUsFrm">
+ 
+                <div class="form-group">
+                    <label for="ImageUrl" class="col-sm-3 control-label">اللوجو</label>
+                    <div class="col-sm-9">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="file" id="ImageUrl" />
+                            </div>
+                            <div class="col-md-3">
+                                <input class="btn btn-default " type="button" id="btnUpload" value=" رفـع " />
+                            </div>
+                            <div class="col-md-3">
+                                <img style="width: 80px" ng-src={{ImageUrl}} id="imgUserImage" class="img-rounded" alt="Upload Image">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+ 
+                <div class="form-group">
+                    <label for="txt_Title" class="col-sm-3 control-label">العنوان</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Title" ng-model="title" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="عنوان المقال">
+                    </div>
+
+                </div>
+ 
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/SetTittleCtrl.js"></script>
+
+  
+
+    <script type="text/javascript">
+ 
+
+        $("#btnUpload").click(function (evt) {
+            UploadScript.uploadFile(evt, 'ImageUrl', '#imgUserImage');
+        });
+
+    </script>
+
+
+
+
+
+</div>

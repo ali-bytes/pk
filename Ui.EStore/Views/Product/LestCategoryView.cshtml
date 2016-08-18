@@ -1,0 +1,174 @@
+﻿@using Domain.EStore
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@{
+    ViewBag.Title = "LestCategoryView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section SeoRender{
+    <style>
+        #Brands {
+            width: 150px;
+            height: 35px;
+        }
+    </style>
+    <title> هنداوى : @ViewBag.LestCategories.Name </title>
+}
+<div class="page-container-wrap">
+
+    <div id="breadcrumb" style="padding: 12px 10px 8px 10px;" style="padding: 12px 10px 8px 10px;">
+        <span></span>
+        <a href="/Home">@CultureHelper.GetUserLanguageValue("عام", "الصفحة الرئيسية")</a><span class="span"></span><a href="/Product/">@CultureHelper.GetUserLanguageValue("عام", "المنتجات")</a><span class="span"></span>@{if(CultureHelper.GetLang() == Enums.Lang.Ar){<a href="/Product/MainCategoryView/@ViewBag.MainCategories.Id-@ViewBag.MainCategories.Name ">@ViewBag.MainCategories.Name</a><span class="span"></span><a href="/Product/CategoryProduct/@ViewBag.Categories.Id-@ViewBag.Categories.Name "> @ViewBag.Categories.Name</a><span class="span"></span><a href="/Product/LestCategoryView/@ViewBag.LestCategories.Id-@ViewBag.LestCategories.Name "> @ViewBag.LestCategories.Name</a> }else{<a href="/Product/MainCategoryView/@ViewBag.MainCategories.Id-@ViewBag.MainCategories.NameEn ">@ViewBag.MainCategories.NameEn</a><span class="span"></span><a href="/Product/CategoryProduct/@ViewBag.Categories.Id-@ViewBag.Categories.NameEn "> @ViewBag.Categories.NameEn</a><span class="span"></span><a href="/Product/LestCategoryView/@ViewBag.LestCategories.Id-@ViewBag.LestCategories.NameEn "> @ViewBag.LestCategories.NameEn</a>}}
+
+
+    </div>
+
+
+    <div class="Categories-style">
+
+        <h2 class="socend-title"> @CultureHelper.GetUserLanguageValue("عام", "الماركات") </h2>
+        <div class="Categories-style">
+            <ul>
+                <div style="color: Purple;margin:10px 0px;">
+                  @CultureHelper.GetUserLanguageValue("عام", " اختر ماركة") 
+                </div>
+                <div class="editor-field">
+
+                    @using (Html.BeginForm("LestCategoryView", "Product"))
+                    {
+                        if (ViewData.ContainsKey("brands"))
+                        {
+                            <input type="hidden" id="categoryId" name="id" value="@ViewBag.LestCategories.Id-@ViewBag.LestCategories.Name  " />
+                            @Html.DropDownList("Brands", ViewData["brands"] as List<SelectListItem>)
+                        }
+
+                        <input style="width: 120px; height: 35px; margin-bottom: 20px; font-size: 18px; color: #fff; background: #ff53aa; border: none;" id="Submit1" type="submit" value="بحث" />
+
+                    }
+
+
+                </div>
+
+
+            </ul>
+        </div>
+
+        <h2 class="socend-title">@CultureHelper.GetUserLanguageValue("عام", "المنتجات")</h2>
+        <ul id="CategoryProducts">
+
+            @{
+                //  List<Product> Products = ProductController.GetProductsByCategoryId(ViewBag.Categories.Id);
+                List<Product> Products = ProductController.GetProductsByLestCategoryId(ViewBag.LestCategories.Id, ViewBag.BrandId);
+                foreach (var product in Products)
+                {
+                    if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                    {
+                        <li>
+                            <a href="/Product/ProductView/@product.Id-@product.Name.ClearString()">
+                                @{
+
+                                    var priceafter = product.SalePrice;
+                                    var priceaftrerPercent = product.DiscountPrice;
+                                    if (product.DiscountPrice > 0)
+                                    {
+                                        if (product.DiscountPercent)
+                                        {
+
+                                            priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+
+                                        }
+                                        else
+                                        {
+
+
+                                            priceaftrerPercent = 100 - (((product.SalePrice - priceaftrerPercent)/product.SalePrice)*100);
+
+                                            priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+                                        }
+                                    }
+                                }
+                                <div class="img-container">
+
+                                    @{
+                                        if (priceaftrerPercent > 0)
+                                        {
+                                            <span class="percent">
+                                                @priceaftrerPercent.ToString("#.##")%
+                                            </span>
+                                        }
+                                    }
+
+
+                                    <img src="@product.ImageUrl" alt="@product.Berif" />
+                                    <h3>
+                                        @product.Name
+                                    </h3>
+
+                                    <p>@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج") : @priceafter.ToString("#.##") @CultureHelper.GetUserLanguageValue("عام", "جنيه")</p>
+                                </div>
+
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/Product/ProductView/@product.Id-@product.NameEn.ClearString()">
+                                @{
+
+                                    var priceafter = product.SalePrice;
+                                    var priceaftrerPercent = product.DiscountPrice;
+                                    if (product.DiscountPrice > 0)
+                                    {
+                                        if (product.DiscountPercent)
+                                        {
+
+                                            priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+
+                                        }
+                                        else
+                                        {
+
+
+                                            priceaftrerPercent = 100 - (((product.SalePrice - priceaftrerPercent)/product.SalePrice)*100);
+
+                                            priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+                                        }
+                                    }
+                                }
+                                <div class="img-container">
+
+                                    @{
+                                        if (priceaftrerPercent > 0)
+                                        {
+                                            <span class="percent">
+                                                @priceaftrerPercent.ToString("#.##")%
+                                            </span>
+                                        }
+                                    }
+
+
+                                    <img src="@product.ImageUrl" alt="@product.BerifEn" />
+                                    <h3>
+                                        @product.NameEn
+                                    </h3>
+
+                                    <p>@CultureHelper.GetUserLanguageValue("عام", "سعر المنتج") : @priceafter.ToString("#.##") @CultureHelper.GetUserLanguageValue("عام", "جنيه")</p>
+                                </div>
+
+                            </a>
+                        </li>
+                    }
+                }
+
+            }
+
+
+        </ul>
+    </div>
+</div>
+
+
+
+

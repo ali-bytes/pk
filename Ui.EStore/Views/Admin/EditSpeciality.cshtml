@@ -1,0 +1,62 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>تعديل  تخصص </title>
+}
+
+
+<div class="panel panel-primary" id="specialityCtrl" ng-app="SpecialityApp" ng-controller="specialityCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل تخصص</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="SpecialityFrm">
+
+                <div class="form-group">
+                    <label for="ddl_Speciality" class="col-sm-3 control-label">التخصصات  </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Speciality" class="form-control" ng-model="selectedSpeciality" ng-change="GetSpeciality()" ng-options="i.Name for i in Specialitys"></select>
+
+                    </div>
+                </div>
+                <hr style="border-width: 5px;" />
+                <div id="div_userDetails" ng-show="Id>0">
+
+
+                    <div class="form-group">
+                        <label for="txt_Title" class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Title" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم المحافظة">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/SpecialityCtrl.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            angular.element('#specialityCtrl').scope().GetAllRules();
+        });
+    </script>
+</div>

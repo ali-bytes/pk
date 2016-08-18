@@ -1,0 +1,117 @@
+﻿@using Ui.EStore.Helpers
+@model Ui.EStore.Models.LoginModel
+
+@{
+    ViewBag.Title = "تسجيل الدخول ";
+}
+<style>
+    .new-account a{
+        color:orangered;
+    }
+    .new-account {
+        margin-right: 8%;
+    } 
+    .register .row input[type="text"], .register .row input[type="password"] {
+        width: 90%;
+    }
+    .register .row input[type="submit"] {
+        width: 84% !important;
+        margin-right:7%;
+    }
+</style>
+<div class="register">
+    <hgroup>
+        <h1>@CultureHelper.GetUserLanguageValue("عام", "تسجيل الدخول")</h1>
+    </hgroup>
+    <h2> @CultureHelper.GetUserLanguageValue("عام", "استخدم حسابك الحالى لتسجيل دخولك")
+</h2>
+    <section id="loginForm">
+      
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend> @CultureHelper.GetUserLanguageValue("عام", "تسجيل الدخول")</legend>
+              
+                @{
+                    if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                    {
+                        <ol>
+                            <ol>
+                                <li class="row">
+                                    <label>@Html.LabelFor(m => m.UserName)</label>
+                                    @Html.TextBoxFor(m => m.UserName)
+                                    @Html.ValidationMessageFor(m => m.UserName)
+                                </li>
+                                <li class="row">
+                                    <label>
+                                        @Html.LabelFor(m => m.Password)
+                                    </label>
+                                    @Html.PasswordFor(m => m.Password)
+                                    @Html.ValidationMessageFor(m => m.Password)
+                                </li>
+                                <li class="row">
+
+                                    <span> @Html.CheckBoxFor(m => m.RememberMe)</span>
+
+                                    <span style="width: 200px;"> @Html.LabelFor(m => m.RememberMe, new {@class = "checkbox"})</span>
+                                </li>
+                            </ol>
+                            <div class="row">
+                                <input type="submit" value="دخول" />
+                            </div>
+                            <p class="new-account">
+                                او قم بإنشاء @Html.ActionLink("حساب جديد", "Register") اذا كنت لا تمتلك حساب على الموقع
+                            </p>
+
+                        </ol>
+                    }
+                    else
+                    {
+                         <ol>
+                            <ol>
+                                <li class="row">
+                                    <label>UserName</label>
+                                    @Html.TextBoxFor(m => m.UserName)
+                                    @Html.ValidationMessageFor(m => m.UserName)
+                                </li>
+                                <li class="row">
+                                    <label>
+                                     Password
+                                    </label>
+                                    @Html.PasswordFor(m => m.Password)
+                                    @Html.ValidationMessageFor(m => m.Password)
+                                </li>
+                                <li class="row">
+
+                                    @*<span>RememberMe</span>
+
+                                    <span style="width: 200px;"> @Html.LabelFor(m => m.RememberMe, new {@class = "checkbox"})</span>*@
+                                </li>
+                            </ol>
+                            <div class="row">
+                                <input type="submit" value="@CultureHelper.GetUserLanguageValue("عام", "دخول")" />
+                            </div>
+                            <p class="new-account">
+                               @CultureHelper.GetUserLanguageValue("عام", "او قم بإنشاء")
+  @Html.ActionLink(CultureHelper.GetUserLanguageValue("عام", "حساب جديد")  , "Register") @CultureHelper.GetUserLanguageValue("عام", " اذا كنت لا تمتلك حساب على الموقع")
+ 
+                            </p> 
+
+                        </ol>
+                    }
+                }      
+                </fieldset>
+        
+        }
+
+    </section>
+
+    <section class="social" id="socialLoginForm">
+        @*<h2>Use another service to log in.</h2>*@
+        @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+    </section>
+    <div style="clear:both;"></div>
+</div>

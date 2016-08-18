@@ -1,0 +1,71 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section SeoRender{
+
+    <title>تعديل منتج  </title>
+}
+
+<div class="panel panel-primary" id="productCtrl" ng-app="productApp" ng-controller="productCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل  منتج</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="ProductFrm">
+
+                <div class="form-group">
+                    <label for="ddl_Product" class="col-sm-3 control-label">المنتجات </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Product" class="form-control" ng-model="selectedProduct" ng-change="GetProduct()" ng-options="i.Name for i in Products"></select>
+
+                    </div>
+                </div>
+                <hr style="border-width: 5px;" />
+
+                <div id="div_userDetails" ng-show="Id>0">
+
+   
+                    <div class="form-group">
+                        <label for="txt_Quntaty" class="col-sm-3 control-label">الكمية المتاحة</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Quntaty" whole-number ng-model="AvailableQuntaty" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="الكمية المتاحة ">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="SaveCount()" class="btn btn-default">حفظ</button>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/ProductCtrl.js"></script>
+
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            angular.element('#productCtrl').scope().GetAllProducts();
+           
+        });
+    </script>
+
+</div>

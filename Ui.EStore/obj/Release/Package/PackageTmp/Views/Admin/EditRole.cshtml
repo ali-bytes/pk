@@ -1,0 +1,61 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>تعديل  صلاحية </title>
+}
+
+
+<div class="panel panel-primary" id="ruleCtrl" ng-app="RuleApp" ng-controller="ruleCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل صلاحية</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="RuleFrm">
+
+                <div class="form-group">
+                    <label for="ddl_Rules" class="col-sm-3 control-label">الصلاحيات  </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Rules" class="form-control" ng-model="selectedRule" ng-change="GetRule()" ng-options="i.Name for i in Rules"></select>
+
+                    </div>
+                </div>
+                <hr style="border-width: 5px;" />
+                <div id="div_userDetails" ng-show="Id>0">
+
+
+                    <div class="form-group">
+                        <label for="txt_Title" class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Title" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                            <button type="submit" id="btnSave" ng-click="Delete()" ng-show="CanDelete" class="btn btn-default">حذف</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/RulesCtrl.js"></script>
+    <script>
+        $(document).ready(function () {
+            angular.element('#ruleCtrl').scope().GetAllRules();
+        });
+    </script>
+</div>

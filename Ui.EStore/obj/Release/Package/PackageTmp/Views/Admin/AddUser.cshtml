@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section SeoRender{
+
+    <title>أضافة  مستخدم </title>
+}
+
+
+<div class="panel panel-primary" id="userCtrl" ng-app="UserApp" ng-controller="userCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">أضافة مستخدم</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="UserFrm">
+
+                <div class="form-group">
+                    <label for="txt_Title" class="col-sm-3 control-label">الاسم</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Title" ng-model="UserName" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_Password" class="col-sm-3 control-label">كلمة المرور</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Password" ng-model="Password" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_Email" class="col-sm-3 control-label">البريد الالكترونى</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Email" ng-model="Email" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="email" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddl_Rules" class="col-sm-3 control-label">الصلاحية </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Rules" class="form-control" ng-model="selectedRule" ng-options="i.Name for i in Rules"></select>
+
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="Chk_IsActive" class="col-sm-3 control-label">حالة المستخدم</label>
+                    <div class="col-sm-4  ">
+                        <input type="checkbox" id="Chk_IsActive" ng-model="IsActive" class=" checkbox-inline" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/UsersCtrl.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            angular.element("#userCtrl").scope().GetAllRules();
+
+        });
+    </script>
+</div>

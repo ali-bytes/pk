@@ -1,0 +1,172 @@
+﻿@using Domain.EStore
+@using Domain.EStore.Repositories
+
+@{
+    ViewBag.Title = "LanguageManager";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        @* <img src="/Images/edituser.png" style="width: 32px; height: 32px;" />*@
+        Seo
+    </div>
+    <div class="panel-body">
+
+
+        <form class="form-horizontal" id="formAddUser" role="form" enctype="multipart/form-data">
+
+
+            <div class="form-group">
+                <label for="ddl_Languages" class="col-sm-3 control-label">اللغات</label>
+                <div class="col-sm-9">
+                    <select id="ddl_Languages" class="form-control" data-validate="required" data-validate-type="ddl">
+                        <option value="-1">أختر اللغة</option>
+                        @{
+                            var categoriess = LanguageService.GetAllLanguageStatic();
+                            foreach (Language cat in categoriess)
+                            {
+
+                                <option @{if (cat.Id == ViewBag.BLG_CategoryID) { @: selected="selected"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }} value="@cat.Id">
+                                    @cat.LanguageName
+                                </option>
+
+
+                            }
+                        }
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ddl_Pages" class="col-sm-3 control-label">الصفح</label>
+                <div class="col-sm-9">
+                    <select id="ddl_Pages" class="form-control" data-validate="required" data-validate-type="ddl">
+                        <option value="-1">أختر الصفحة</option>
+                        @{
+                            var Pages = LanguageService.GetAllPagesStatic();
+                            foreach (SysPage cat in Pages)
+                            {
+
+                                <option @{if (cat.Id == ViewBag.BLG_CategoryID) { @: selected="selected"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              }} value="@cat.Id">
+                                    @cat.PageName
+                                </option>
+
+
+                            }
+                        }
+                    </select>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="ddl_Tools" class="col-sm-3 control-label">العناصر</label>
+                <div class="col-sm-9">
+                    <select id="ddl_Tools" class="form-control">
+                        <option value="-1">أخترالعنصر</option>
+
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" id="btnAddUser" class="btn btn-default">عرض</button>
+                </div>
+            </div>
+
+        </form>
+        <hr style="border-width: 5px;" />
+        <form class="form-horizontal" id="formEditArticle" role="form" enctype="multipart/form-data">
+            <div id="div_userDetails" style="display: none;">
+
+                <div class="form-group">
+                    <label for="txt_SeoUrl" class="col-sm-3 control-label">النص</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_SeoUrl" maxlength="400" value="" dir="rtl" type="text" class="form-control"></textarea>
+                    </div>
+                </div>
+                
+              
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" id="btnEditArticle" class="btn btn-default">حفظ</button>
+                        <button type="submit" id="btnDeleteArticle" class="btn btn-default"> الغاء</button>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="div_Script">
+
+
+    <script src="~/Scripts/Controllers/Languages.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#ddl_Languages").change(function () {
+                $('#ddl_Tools').find('option').remove().end();
+                if ($(this).val() == -1 || $("#ddl_Pages").val() == -1) {
+                    $("#div_userDetails").hide();
+                } else {
+                    LanguageScript.GetPageTools($('#ddl_Languages').val(), $("#ddl_Pages").val());
+                }
+            });
+
+            $("#ddl_Pages").change(function () {
+                $('#ddl_Tools').find('option').remove().end();
+                if ($('#ddl_Languages').val() == -1 || $("#ddl_Pages").val() == -1) {
+                    $("#div_userDetails").hide();
+                } else {
+                    LanguageScript.GetPageTools($('#ddl_Languages').val(), $("#ddl_Pages").val());
+                }
+            });
+
+
+            $("#div_userDetails").hide();
+            $("#btnAddUser").click(function (evt) {
+                evt.preventDefault();
+
+                if ($("#divWarning").hasClass("invisible")) {
+
+                    LanguageScript.getToolLanguageDataById();
+                    $("#div_userDetails").show();
+                } else {
+                    $("#div_userDetails").hide();
+                }
+            });
+
+            $("#btnEditArticle").click(function (evt) {
+                evt.preventDefault();
+                validateScript.validate($("#formAddUser"));
+                if ($("#divWarning").hasClass("invisible")) {
+                    LanguageScript.saveLanguage  (evt);
+                }
+
+            });
+
+            $("#btnDeleteArticle").click(function (evt) {
+                evt.preventDefault();
+                validateScript.validate($("#formAddUser"));
+                $("#formAddUser")[0].reset();
+                $("#div_userDetails").hide();
+
+            });
+
+        });
+    </script>
+</div>

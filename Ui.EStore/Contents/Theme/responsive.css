@@ -1,0 +1,199 @@
+/************ 768px to 959px *************/
+@media only screen and (min-width: 768px) and (max-width: 959px){
+
+#nav ul li{
+float:none;
+border-bottom:2px solid #ffffff;
+margin-left:.5%;
+width:100%;
+text-align:right;
+}
+#drop{
+display:block;
+}
+
+#nav ul li a{
+margin-right:2%;
+
+}
+#nav ul li:hover{
+background:#FF9900;
+}
+.box5,.box4,.box3,.box2,.box1{
+
+width:90%;
+float:none;
+margin:2% auto;
+}
+
+#wrap{
+width:90%;
+
+}
+#nav{
+display:none;
+}
+#nav ul{
+overflow:hidden;
+margin:0 2% 2% 2%;
+
+background:#FFCC33;
+border-radius:5px;
+
+
+height:200px;
+
+}
+}
+
+/************ 480px to 767px *************/
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+
+#nav{
+display:none;
+}
+
+#drop{
+display:block;
+
+}
+
+#nav ul li{
+float:none;
+
+border-bottom:2px solid #3399FF;
+margin-left:.5%;
+width:100%;
+
+text-align:right;
+
+
+}
+#nav ul li a{
+margin-right:2%;
+
+}
+#nav ul li:hover{
+background:#FF9900;
+}
+#nav ul li{
+float:none;
+
+}
+.box5,.box4,.box3,.box2,.box1{
+
+width:90%;
+float:none;
+margin:2% auto;
+}
+
+#wrap{
+width:90%;
+
+}
+
+}
+
+
+/************ 320px to 480px *************/
+@media only screen and (min-width: 320px) and (max-width: 480px){
+
+#nav{
+display:none;
+}
+
+#drop{
+display:block;
+
+}
+
+#nav ul li{
+float:none;
+
+border-bottom:2px solid #3399FF;
+margin-left:.5%;
+width:100%;
+text-align:right;
+
+
+
+}
+#nav ul li{
+float:none;
+
+}
+#nav ul li a{
+margin-right:2%;
+
+}
+#nav ul li:hover{
+background:#FF9900;
+}
+
+#wrap{
+width:90%;
+
+}
+
+.box5,.box4,.box3,.box2,.box1{
+
+width:90%;
+float:none;
+margin:2% auto;
+}
+
+}
+
+
+/************ 	max-width 667px 
+					Small Special Code 
+ **********************************************/
+@media only screen and (max-width: 667px) {
+
+#nav{
+display:none;
+}
+
+#drop{
+display:block;
+
+}
+
+#nav ul li{
+float:none;
+width:80%;
+border-bottom:2px solid #3399FF;
+margin-left:.5%;
+width:100%;
+text-align:right;
+
+
+
+}
+#nav ul li{
+float:none;
+
+}
+.box5,.box4,.box3,.box2,.box1{
+
+width:90%;
+float:none;
+margin:2% auto;
+}
+
+#wrap{
+width:90%;
+
+}
+#nav ul li a{
+margin-right:2%;
+
+}
+#nav ul li:hover{
+background:#FF9900;
+}
+
+}
+

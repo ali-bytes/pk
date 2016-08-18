@@ -1,0 +1,147 @@
+﻿@using Domain.EStore
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@{
+    ViewBag.Title = "SearchProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-container-wrap">
+
+    @section SeoRender{
+        <title> هنداوى : @ViewBag.SearchName </title>
+
+    }
+    @*<div id="breadcrumb" style="padding: 12px 10px 8px 10px;" style="padding: 12px 10px 8px 10px;">
+        <span></span>
+        <a href="/Home">الصفحة الرئيسية</a><span class="span"></span><a href="/Product/SearchProduct/@ViewBag.SearchName"> @ViewBag.SearchName</a>
+
+
+    </div>*@
+
+
+    <div class="Categories-style">
+        
+        <h2 class="socend-title" style="margin-bottom: 20px;"> @CultureHelper.GetUserLanguageValue("عام", "نتائج البحث عن")  @ViewBag.SearchName</h2>
+        <ul>
+
+
+            @{
+                var Products = ProductController.Search(@ViewBag.SearchName);
+                foreach (var product in Products)
+                {
+                    if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                    {
+                        <li>
+                            <a href="/Product/ProductView/@product.Id-@product.Name.ClearString()">
+                                @{
+
+                                    var priceafter = product.SalePrice;
+                                    var priceaftrerPercent = product.DiscountPrice;
+                                    if (product.DiscountPrice > 0)
+                                    {
+                                        if (product.DiscountPercent)
+                                        {
+
+                                            priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+
+                                        }
+                                        else
+                                        {
+
+
+                                            priceaftrerPercent = 100 - (((product.SalePrice - priceaftrerPercent)/product.SalePrice)*100);
+
+                                            priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+                                        }
+                                    }
+                                }
+                                <div class="img-container">
+                               
+                                    @{
+                                        if (priceaftrerPercent > 0)
+                                        {
+                                            <span class="percent">
+                                                @priceaftrerPercent.ToString("#.##")%
+                                            </span>
+                                        }
+                                    }
+                                   
+                             
+                                    <img src="@product.ImageUrl" alt="@product.Berif" />
+                                    <h3>
+                                        @product.Name
+                                    </h3>
+
+                                    <p> @priceafter.ToString("#.##")</p>
+                                </div>
+                           
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+   <li>
+                            <a href="/Product/ProductView/@product.Id-@product.NameEn.ClearString()">
+                                @{
+
+                                    var priceafter = product.SalePrice;
+                                    var priceaftrerPercent = product.DiscountPrice;
+                                    if (product.DiscountPrice > 0)
+                                    {
+                                        if (product.DiscountPercent)
+                                        {
+
+                                            priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+
+                                        }
+                                        else
+                                        {
+
+
+                                            priceaftrerPercent = 100 - (((product.SalePrice - priceaftrerPercent)/product.SalePrice)*100);
+
+                                            priceafter = product.SalePrice - (priceaftrerPercent*(product.SalePrice)/100);
+                                        }
+                                    }
+                                }
+                                <div class="img-container">
+                               
+                                    @{
+                                        if (priceaftrerPercent > 0)
+                                        {
+                                            <span class="percent">
+                                                @priceaftrerPercent.ToString("#.##")%
+                                            </span>
+                                        }
+                                    }
+                                   
+                             
+                                    <img src="@product.ImageUrl" alt="@product.BerifEn" />
+                                    <h3>
+                                        @product.NameEn
+                                    </h3>
+
+                                    <p> @priceafter.ToString("#.##")</p>
+                                </div>
+                           
+                            </a>
+                        </li>
+                    }
+                }
+
+
+
+
+
+            }
+               
+
+           
+
+
+        </ul>
+    </div>
+</div>
+
+

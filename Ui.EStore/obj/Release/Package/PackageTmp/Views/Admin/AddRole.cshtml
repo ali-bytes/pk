@@ -1,0 +1,49 @@
+﻿@{
+   
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section SeoRender{
+
+    <title>أضافة  صلاحية </title>
+}
+
+
+<div class="panel panel-primary" ng-app="RuleApp" ng-controller="ruleCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">أضافة صلاحية</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="RuleFrm">
+
+
+
+
+                <div class="form-group">
+                    <label for="txt_Title" class="col-sm-3 control-label">الاسم</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Title" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control"  >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/RulesCtrl.js"></script>
+
+
+</div>

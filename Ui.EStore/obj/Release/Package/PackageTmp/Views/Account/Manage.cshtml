@@ -1,0 +1,30 @@
+﻿@model Ui.EStore.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "أدارة الحساب";
+}
+<div class="register">
+    <hgroup>
+        <h1>@ViewBag.Title.</h1>
+    </hgroup>
+
+    <p class="message-success">@ViewBag.StatusMessage</p>
+
+    <p>تم تسجيل دخولك بحساب <strong>@User.Identity.Name</strong>.</p>
+
+    @if (ViewBag.HasLocalPassword)
+    {
+       <h2>  @Html.Partial("_ChangePasswordPartial")</h2>
+    }
+    else
+    {
+        @Html.Partial("_SetPasswordPartial")
+    }
+
+    <section id="externalLogins">
+        @Html.Action("RemoveExternalLogins")
+
+        <h2>أضافة تسجيل جديد</h2>
+        @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+    </section>
+
+</div>

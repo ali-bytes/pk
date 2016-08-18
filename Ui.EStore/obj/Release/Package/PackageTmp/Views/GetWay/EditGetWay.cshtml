@@ -1,0 +1,112 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>تعديل طريقة دفع  </title>
+}
+
+<div class="panel panel-primary" id="getWayCtrl" ng-app="getWayApp" ng-controller="getWayCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل  طريقة دفع</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="getwayFrm">
+
+                <div class="form-group">
+                    <label for="ddl_GetWaies" class="col-sm-3 control-label">طرق الدفع  </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_GetWaies" class="form-control" ng-model="selectGetway" ng-change="GetGetWay()" ng-options="i.Name for i in GetWays"></select>
+
+                    </div>
+                </div>
+                <hr style="border-width: 5px;" />
+                <div id="div_userDetails" ng-show="Id>0">
+
+                    <div class="form-group">
+                        <label for="ImageUrl" class="col-sm-3 control-label">الصورة</label>
+                        <div class="col-sm-9">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="file" id="ImageUrl" />
+                                </div>
+                                <div class="col-md-3">
+                                    <input class="btn btn-default " type="button" id="btnUpload" value=" رفـع " />
+                                </div>
+                                <div class="col-md-3">
+                                    <img style="width: 80px" ng-src={{ImageUrl}} id="imgUserImage" class="img-rounded" alt="Upload Image">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_Name" class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Name" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="طريقة الدفع ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_NameEn" class="col-sm-3 control-label">الاسم بالانجليزية</label>
+                        <div class="col-sm-4">
+                            <input id="txt_NameEn" ng-model="NameEn" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="طريقة الدفع ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_Berif" class="col-sm-3 control-label">النبذة </label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_Berif" dir="rtl" data-validate="required" data-validate-type="required" ng-model="Berif" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_BerifEn" class="col-sm-3 control-label"> النبذة بالانجليزية</label>
+                        <div class="col-sm-9">
+                            <textarea id="txt_BerifEn" dir="rtl" data-validate="required" data-validate-type="required" ng-model="BerifEn" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                            <button type="submit" id="btnSave" ng-click="Delete()" ng-show="CanDelete" class="btn btn-default">حذف</button>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/GetWayCtrl.js"></script>
+
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            angular.element('#getWayCtrl').scope().GetAllGetWaies();
+
+            $('#txt_Berif').ckeditor();
+            $('#txt_BerifEn').ckeditor();
+
+            $("#btnUpload").click(function (evt) {
+
+                UploadScript.uploadFile(evt, 'ImageUrl', '#imgUserImage');
+            });
+        });
+    </script>
+
+</div>

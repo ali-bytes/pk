@@ -1,0 +1,64 @@
+﻿@{
+  
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section SeoRender{
+
+    <title>أضافة طريقة شحن </title>
+}
+
+
+<div class="panel panel-primary" ng-app="DeleveyApp" ng-controller="deleveyCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">أضافة طريقة شحن</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="categoryFrm">
+
+
+
+
+
+
+                <div class="form-group">
+                    <label for="txt_Title" class="col-sm-3 control-label">الاسم</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Title" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم طريقة الشحن">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txt_TitleEn" class="col-sm-3 control-label">الاسم</label>
+                    <div class="col-sm-4">
+                        <input id="txt_TitleEn" ng-model="NameEn" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم طريقة الشحن">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_Sale" class="col-sm-3 control-label">التكلفة </label>
+                    <div class="col-sm-4">
+                        <input id="txt_Sale" ng-model="Cost" whole-number maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="التكلفة ">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/DeleveryCtrl.js"></script>
+
+    
+</div>

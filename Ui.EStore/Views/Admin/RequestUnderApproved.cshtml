@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "RequestUnderApproved";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+    
+    <title>طلبات تحت الموافقة </title>
+}
+
+
+<div  id="cartRequestCtrl" ng-app="CartRequestApp" ng-controller="cartRequestCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default"> طلبات تحت الموافقة </span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="categoryFrm">
+
+                <div>
+                
+                    <div id="approve">
+                        <div id="items-table" class="table table-bordered table-hover table-condensed table-striped white">
+
+                            <div id="table-header" class="table-row">
+                                <div class="cell">
+                                    المسلسل
+                                </div>
+                                <div class="cell">
+                                    الاسم
+                                </div>
+                                <div class="cell">
+                                    العنوان
+                                </div>
+                                <div class="cell">
+                                    البريد الالكترونى
+                                </div>
+                                <div class="cell">
+                                    الموبايل
+                                </div>
+
+                                <div class="cell">
+
+                                </div>
+                                <div class="cell">
+
+                                </div>
+                                <div class="cell">
+
+                                </div>
+                            </div>
+
+
+                            <div class="table-row" ng-repeat="i in MyCart ">
+                                <div class="cell">
+                                    {{$index+1}}
+                                </div>
+                                <div class="cell">
+                                    {{i.CustomerName}}
+                                </div>
+                                <div class="cell">
+                                    {{i.Address}}
+                                </div>
+                                <div class="cell">
+                                    {{i.Email}}
+                                </div>
+                                <div class="cell">
+                                    {{i.Phone}}
+                                </div>
+
+                                <div class="cell">
+                                    <button class="btn btn-danger" type="button" ng-click="ShowCart(i.Id)">
+                                        <i class="icon-white icon-remove"></i>&nbsp;عرض
+                                    </button>
+                                </div>
+                                <div class="cell" style="text-align: center">
+                                    <button class="btn btn-danger" type="button" ng-click="ApprovedCart(i.Id)">
+                                        <i class="icon-white icon-remove"></i>&nbsp;موافقة
+                                    </button>
+                                </div>
+                                <div class="cell" style="text-align: center">
+                                    <button class="btn btn-danger" type="button" ng-click="CancelCart(i.Id)">
+                                        <i class="icon-white icon-remove"></i>&nbsp;رفض
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div ng-show="EnableShow">
+
+                        <div>
+                        
+                            
+                            
+                            <div style="float: right;width: 50%;">
+                                <span class="thetitle">  الاسم :</span>{{FullCart.CustomerName}}<br /><br />
+                                <span class="thetitle">
+                                    العنوان :
+                                </span>{{FullCart.CustomerAddress}}<br /><br />
+                                <span class="thetitle">
+                                    رقم السلة :
+                                </span>    {{FullCart.CartId}}<br /><br />
+                                <span class="thetitle">
+                                    طريقة الشحن :
+                                </span>{{FullCart.DeliveryName}}<br /><br />
+                            </div>
+                            <div style="float: right;width: 50%;">
+                                <span class="thetitle">
+                                    طريقة الدفع :
+                                </span>{{FullCart.GetWayName}}<br /><br />
+                                <span class="thetitle">
+                                    التاريخ :
+                                </span>{{FullCart.Time}}<br /><br />
+                                <span class="thetitle">
+                                    الاجمالى :
+                                </span>{{FullCart.Total}}
+                            </div>
+
+                        </div>
+                        <div>
+                            <div id="items-table" class="table table-bordered table-hover table-condensed table-striped white">
+
+                                <div id="table-header" class="table-row">
+                                    <div style="width:8% !important;" class="cell">
+                                        مسلسل
+                                    </div>
+                                    <div style="width:62% !important;" class="cell">
+                                        الاسم
+                                    </div>
+                                    <div style="width:10% !important;" class="cell">
+                                        السعر
+                                    </div>
+                                    <div style="width:10% !important;" class="cell">
+                                        الكمية
+                                    </div>
+
+                                    <div style="width:10% !important;" class="cell">
+                                        الاجمالى
+                                    </div>
+
+                                </div>
+
+
+                                <div class="table-row" ng-repeat="i in FullCart.MyCartDetailse ">
+                                    <div style="width: 8% !important; margin-right: 0px !important;" class="cell">
+                                        {{$index+1}}
+                                    </div>
+                                    <div style="width: 62% !important; margin-right: 0px !important;" class="cell">
+                                        {{i.ProductName}}
+                                    </div>
+                                    <div style="width: 10% !important; margin-right: 0px !important;" class="cell">
+                                        {{i.Price}}
+                                    </div>
+                                    <div style="width: 10% !important; margin-right: 0px !important;" class="cell">
+                                        {{i.Quntaty}}
+                                    </div>
+
+                                    <div style="width: 10% !important; margin-right: 0px !important;" class="cell">
+                                        {{i.Total|number:2}}
+                                    </div>
+                                    @*<div class="delete" style="text-align: center">
+                            <button class="btn btn-danger" type="button" ng-click="ApprovedCart(i.Id)">
+                                <i class="icon-white icon-remove"></i>&nbsp;موافقة
+                            </button>
+                        </div>
+                        <div class="delete" style="text-align: center">
+                            <button class="btn btn-danger" type="button" ng-click="CancelCart(i.Id)">
+                                <i class="icon-white icon-remove"></i>&nbsp;رفض
+                            </button>
+                        </div>*@
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/CartRequested.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            angular.element("#cartRequestCtrl").scope().GetNewCarts();
+
+        });
+    </script>
+
+</div>

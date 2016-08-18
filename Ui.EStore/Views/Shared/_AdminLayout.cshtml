@@ -1,0 +1,196 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+
+    @Styles.Render("~/bundles/AdminMainCSS")
+    @Scripts.Render("~/bundles/AdminMainJs")
+
+    @RenderSection("SeoRender", false)
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <header id="header" style="border-top:#337ab7 8px solid; ">
+                <div class="admin-links" style="float: left; padding: 10px; background:#337ab7; color: #fff;margin-left:3%;"> @Html.ActionLink("Home", "Index", "Home") | @Html.ActionLink("Control panel", "Index", "Admin") | <a href="/Admin/LogOut">LogOut</a></div>
+
+                @*<div style="clear:both;width:15%;margin:20px auto;"><img src="~/Images/logo.png" /></div>*@
+            </header>
+            <div class="col-xs-3 col-md-3" id="admin-right">
+                <div class="panel panel-primary">
+                    <div class="page-header">
+                        <img src="/Images/menuitem.png" style="width: 20px;" />
+                        <span class="label label-default">القائمة الرئيسية</span>
+                    </div>
+                    <div class="panel-body">
+
+                        <a href="/Admin/AboutUs">من نحن </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Admin/SetTitle">عنوان الصفحة </a>
+                        <hr style="margin: 5px;">
+
+                        <a href="/Admin/ContactUs">أتصل بنا </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Admin/RequestUnderApproved">طلبات تحت الموافقة  </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Admin/RequestApproved"> طلبات تحت التسليم</a>
+                        <hr style="margin: 5px;">
+                        <a href="/Home/NewFAQ">الاسئلة الشائعة </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Home/EditFAQ">تعديل الاسئلة الشائعة </a>
+                        <hr style="margin: 5px;">
+                        
+                        <a href="/Admin/LanguageManager"> أدارة اللغات </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Admin/SeoManager"> أدارة السيو </a>
+                        <hr style="margin: 5px;">
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="page-header">
+                        <img src="/Images/menuitem.png" style="width: 20px;" />
+                        <span class="label label-default">المنتجات</span>
+                    </div>
+                    <div class="panel-body">
+
+                        <a href="/Product/AddMainCategory">أضافة فئة رئيسية </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/EditMainCategory">تعديل فئة رئيسية </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/AddCategory">أضافة فئة فرعية </a>
+
+                        <hr style="margin: 5px;">
+                        <a href="/Product/EditCategory">تعديل فئة فرعية </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/AddLestCategories">أضافة فئة صغرى </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/ManageLestCategories">تعديل فئة صغرى </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/AddBrand">أضافة ماركة </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/EditBrand">تعديل ماركة </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/AddProduct"> أضافة منتج </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/EditProduct">تعديل منتج </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/AddProductImages"> أضافة صور المنتج </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/EditProductImages">تعديل صور المنتج </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/AddDelevery"> أضافة طرق الشحن </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/EditDelevery">تعديل طرق الشحن </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/EditEnquiries">الاستفسارات  </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Product/EditProductCount">تعديل الكميات  </a>
+                        <hr style="margin: 5px;">
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="page-header">
+                        <img src="/Images/menuitem.png" style="width: 20px;" />
+                        <span class="label label-default"> العروض</span>
+                    </div>
+                    <div class="panel-body">
+
+                        <a href="/Home/AddSlider">أضافة  </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Home/EditSlider">تعديل  </a>
+                        <hr style="margin: 5px;">
+                    </div>
+                </div>
+
+
+                <div class="panel panel-primary">
+                    <div class="page-header">
+                        <img src="/Images/menuitem.png" style="width: 20px;" />
+                        <span class="label label-default"> الاخبار</span>
+                    </div>
+                    <div class="panel-body">
+
+                        <a href="/News/AddNew">أضافة  </a>
+                        <hr style="margin: 5px;">
+                        <a href="/News/EditNew">تعديل  </a>
+                        <hr style="margin: 5px;">
+                    </div>
+                </div>
+
+
+                <div class="panel panel-primary">
+                    <div class="page-header">
+                        <img src="/Images/menuitem.png" style="width: 20px;" />
+                        <span class="label label-default">طرق الدفع</span>
+                    </div>
+                    <div class="panel-body">
+
+                        <a href="/GetWay/AddGetway">أضافة  </a>
+                        <hr style="margin: 5px;">
+                        <a href="/GetWay/EditGetWay">تعديل  </a>
+                        <hr style="margin: 5px;">
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="page-header">
+                        <img src="/Images/menuitem.png" style="width: 20px;" />
+                        <span class="label label-default">الفروع </span>
+                    </div>
+                    <div class="panel-body">
+
+                        <a href="/Branche/AddGovernate">أضافة محافظة  </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Branche/EditGovernate">تعديل محافظة   </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Branche/AddCity">أضافة مدينة  </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Branche/EditCity">تعديل مدينة   </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Branche/AddBranche">أضافة فرع  </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Branche/EditBranche">تعديل فرع   </a>
+                        <hr style="margin: 5px;">
+                    </div>
+
+                </div>
+                <div class="panel panel-primary">
+                    <div class="page-header">
+                        <img src="/Images/menuitem.png" style="width: 20px;" />
+                        <span class="label label-default">المستخدمين </span>
+                    </div>
+                    <div class="panel-body">
+
+                        <a href="/Admin/AddUser">أضافة مستخدم </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Admin/EditUser">تعديل مستخدم </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Admin/AddRole">أضافة صلاحية </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Admin/EditRole">تعديل صلاحية </a>
+                        <hr style="margin: 5px;">
+                        <a href="/Admin/Editrule">تعديل الصلاحيات </a>
+                        <hr style="margin: 5px;">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9 col-xs-9">
+                @RenderBody()
+                <script src="~/Scripts/AngularJs/underscore.min.js"></script>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

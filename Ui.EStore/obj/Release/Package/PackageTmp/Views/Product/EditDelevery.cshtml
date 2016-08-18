@@ -1,0 +1,82 @@
+﻿@{
+  
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>تعديل  طريقة شحن </title>
+}
+
+
+<div class="panel panel-primary" id="deleveyCtrl" ng-app="DeleveyApp" ng-controller="deleveyCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">تعديل  طريقة شحن</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="categoryFrm">
+
+                <div class="form-group">
+                    <label for="ddl_Delevey" class="col-sm-3 control-label">طرق الشحن </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Delevey" class="form-control" ng-model="selectedDelevey" ng-change="Getdelivery()" ng-options="i.Name for i in Deleveries"></select>
+
+                    </div>
+                </div>
+
+                <hr style="border-width: 5px;" />
+
+                <div id="div_userDetails" ng-show="Id>0">
+
+                    <div class="form-group">
+                        <label for="txt_Title" class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            <input id="txt_Title" ng-model="Name" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم طريقة الشحن">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_TitleEn" class="col-sm-3 control-label">الاسم</label>
+                        <div class="col-sm-4">
+                            <input id="txt_TitleEn" ng-model="NameEn" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم طريقة الشحن">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_Sale" class="col-sm-3 control-label">التكلفة </label>
+                        <div class="col-sm-4">
+                            <input id="txt_Sale" ng-model="Cost" whole-number maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="التكلفة ">
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                            <button type="submit" id="btnDelete" ng-show="CanDelete" ng-click="Delete()" class="btn btn-default">حذف</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/DeleveryCtrl.js">
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            angular.element('#deleveyCtrl').scope().GetAllDeleveries();
+          
+        });
+    </script>
+</div>

@@ -1,0 +1,129 @@
+
+@font-face
+{
+font-family: Droid;
+src: url(fonts/DroidKufi-Regular.ttf);
+}
+
+body,h1,h2,h3,h4,h5,h6,h7,a,img,p,ul,li,marquee{
+	margin:0px;
+	padding:0px;
+	direction:rtl;
+	border:none;
+	text-decoration:none;
+	list-style:none;
+	font-family: Droid;
+}
+body{
+	background:#dedede;
+}
+.center{
+width:100%;
+margin:2% auto;
+clear:both;
+
+
+}
+#drop{
+
+height:50px;
+background:#005aab;
+display:none;
+width:95%;
+margin:2% auto;
+border-radius:10px;
+color:#FFFFFF;
+text-align:center;
+line-height:50px;
+}
+#wrap{
+width:80%;
+background:#ffffff;
+border-right:1px solid #CCCCCC;
+border-left:1px solid #CCCCCC;
+margin:auto;
+padding-top:2%;
+overflow:hidden;
+
+
+}
+#nav{
+
+}
+#nav ul{
+
+margin:0 2% 2% 2%;
+background:#FFCC33;
+border-radius:5px;
+min-height:40px;
+
+
+}
+#nav ul li{
+float:right;
+width:10%;
+background-color:#FFCC00;
+margin-left:.5%;
+text-align:center;
+font-size:100%;
+min-height:40px;
+}
+#nav ul li:hover{
+background:#2477cb;
+}
+#nav ul li a{
+color:#FFFFFF;
+}
+.box5{
+float:right;
+width:17.8%;
+min-height:200px;
+background:#ffffff;
+margin:2% 1.8% 2% 0%;
+border-radius:10px;
+background-color:#dedede;
+
+}
+.box4{
+float:right;
+width:22.9%;
+min-height:200px;
+background:#ffffff;
+margin:2% 1.6% 2% 0%;
+border-radius:10px;
+background-color:#dedede;
+}
+
+.box4 img{
+width:85%;
+min-height:145px;
+padding:2%;
+border:1px solid #dedede;
+margin:6% 5% 4% 5%;
+}
+.box3{
+float:right;
+width:31.1%;
+min-height:200px;
+background:#ffffff;
+margin:2% 1.6% 2% 0%;
+border-radius:10px;
+background-color:#dedede;
+}
+.box2{
+float:right;
+width:47.5%;
+min-height:200px;
+background:#ffffff;
+margin:2% 1.6% 2% 0%;
+border-radius:10px;
+background-color:#dedede;
+}
+.box1{
+width:97%;
+min-height:200px;
+background:#ffffff;
+margin:2% auto;
+border-radius:10px;
+background-color:#dedede;
+}

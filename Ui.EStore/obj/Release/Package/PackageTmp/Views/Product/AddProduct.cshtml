@@ -1,0 +1,204 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>أضافة منتج  </title>
+}
+
+<div class="panel panel-primary" id="productCtrl" ng-app="productApp" ng-controller="productCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">أضافة  منتج</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="ProductFrm">
+
+
+                <div class="form-group">
+                    <label for="ImageUrl" class="col-sm-3 control-label">الصورة</label>
+                    <div class="col-sm-9">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="file" id="ImageUrl" />
+                            </div>
+                            <div class="col-md-3">
+                                <input class="btn btn-default " type="button" id="btnUpload" value=" رفـع " />
+                            </div>
+                            <div class="col-md-3">
+                                <img style="width: 80px" ng-src={{ImageUrl}} id="imgUserImage" class="img-rounded" alt="Upload Image">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txt_Name" class="col-sm-3 control-label">الاسم</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Name" ng-model="Name" my-maxlength="450" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم المنتج ">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txt_NameEn" class="col-sm-3 control-label">الاسم</label>
+                    <div class="col-sm-4">
+                        <input id="txt_NameEn" ng-model="NameEn" my-maxlength="450" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="أسم المنتج ">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddl_MainCategory" class="col-sm-3 control-label">الفئة الرئيسية </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_MainCategory" class="form-control" data-validate="required" data-validate-type="required" ng-model="selectedMainCategory" ng-change="GetAllCategories()" ng-options="i.Name for i in MainCategories"></select>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddl_Category" class="col-sm-3 control-label">الفئة الفرعية </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Category" class="form-control" ng-change="GetAllLestCategories()" ng-model="selectedCategory" data-validate="required" data-validate-type="required" ng-options="i.Name for i in Categories"></select>
+
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ddl_LestCategory" class="col-sm-3 control-label">الفئة الصغرى </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_LestCategory" class="form-control" ng-model="selectedLestCategory" data-validate="required"  data-validate-type="required" ng-options="i.Name for i in LestCategories"></select>
+
+                    </div>
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="ddl_Brand" class="col-sm-3 control-label">الماركة  </label>
+                    <div class="col-sm-9">
+                        <select id="ddl_Brand" class="form-control" ng-model="selectedBrand" data-validate="required" data-validate-type="required" ng-options="i.Name for i in Brands"></select>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txt_Berif" class="col-sm-3 control-label">النبذة</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_Berif" dir="rtl" my-maxlength="3990" data-validate="required" data-validate-type="required" ng-model="Berif" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_BerifEn" class="col-sm-3 control-label">النبذة</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_BerifEn" dir="rtl" my-maxlength="3990" data-validate="required" data-validate-type="required" ng-model="BerifEn" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_Details" class="col-sm-3 control-label">التفاصيل</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_Details" dir="rtl" my-maxlength="3990" data-validate="required" data-validate-type="required" ng-model="Details" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_DetailsEn" class="col-sm-3 control-label">التفاصيل</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_DetailsEn" dir="rtl" my-maxlength="3990" data-validate="required" data-validate-type="required" ng-model="DetailsEn" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_Sale" class="col-sm-3 control-label">سعر البيع</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Sale" ng-model="SalePrice" whole-number maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="سعر البيع ">
+                    </div>
+                </div>
+
+                <div class="form-group form-inline">
+                    <label for="txt_Discount" class="col-sm-3 control-label">الخصم </label>
+                    <div class="col-sm-4">
+                        <input id="txt_Discount" whole-number ng-model="DiscountPrice" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="الخصم ">
+                    </div>
+                    <label for="Chk_IsPresent " class="col-sm-3 control-label"> نسبة</label>
+                    <div class="col-sm-4  ">
+                        <input type="checkbox" id="Chk_IsPresent" ng-model="DiscountPercent" class=" checkbox-inline" />
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="Chk_IsHome" class="col-sm-3 control-label"> الصفحة الرئيسية</label>
+                    <div class="col-sm-4  ">
+                        <input type="checkbox" id="Chk_IsHome" ng-model="IsHome" class=" checkbox-inline"/>
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label for="Chk_IsHome" class="col-sm-3 control-label"> الاكثر مببعا </label>
+                    <div class="col-sm-4  ">
+                        <input type="checkbox" id="Chk_BestSeller" ng-model="BestSeller" class=" checkbox-inline" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_Quntaty" class="col-sm-3 control-label">الكمية المتاحة</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Quntaty" whole-number ng-model="AvailableQuntaty" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder="الكمية المتاحة ">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txt_Notes" class="col-sm-3 control-label">ملاحظات</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_Notes" dir="rtl" my-maxlength="3990" ng-model="Notes" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_NotesEn" class="col-sm-3 control-label">ملاحظات</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_NotesEn" dir="rtl" my-maxlength="3990" ng-model="NotesEn" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/ProductCtrl.js"></script>
+
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#txt_Berif').ckeditor();
+            $('#txt_Details').ckeditor();
+            $('#txt_Notes').ckeditor();
+
+            $('#txt_BerifEn').ckeditor();
+            $('#txt_DetailsEn').ckeditor();
+            $('#txt_NotesEn').ckeditor();
+            
+            angular.element('#productCtrl').scope().GetAllMainCategories();
+            angular.element('#productCtrl').scope().GetAllBrands();
+         
+
+
+            $("#btnUpload").click(function (evt) {
+
+                UploadScript.uploadFile(evt, 'ImageUrl', '#imgUserImage');
+            });
+        });
+    </script>
+
+</div>

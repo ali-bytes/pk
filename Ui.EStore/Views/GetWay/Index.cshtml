@@ -1,0 +1,52 @@
+﻿@using Domain.EStore
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-container">
+    <div class="page-container-wrap">
+        @section SeoRender{
+            <title> هنداوى : طرق الدفع</title>
+        }
+        <div id="breadcrumb" style="padding: 12px 10px 8px 10px;" style="padding: 12px 10px 8px 10px;">
+            <span></span>
+            <a href="/Home">@CultureHelper.GetUserLanguageValue("عام", "الصفحة الرئيسية") </a><span class="span"></span><a href="/GetWay/"> @CultureHelper.GetUserLanguageValue("عام", "طرق الدفع")</a>
+        </div>
+        <div id="content3">
+            <ul>
+
+                @{
+                    List<GetWay> getways = GetWayController.GetAllGetWays();
+                    foreach (var getway in getways)
+                    {
+                        
+                        <li>
+                          @{
+                              if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                              {
+
+                                  <img src="@getway.ImageUrl" />
+                                  <br />
+                                  <h3> @getway.Name</h3>
+                                  <p style="width: 100%; word-break: break-all;">@Html.Raw(getway.Berif)</p>
+                              }
+                              else
+                              {
+                                   <img src="@getway.ImageUrl" />
+                                  <br />
+                                  <h3> @getway.NameEn</h3>
+                                  <p style="width: 100%; word-break: break-all;">@Html.Raw(getway.BerifEn)</p>
+                              }
+                          }
+                        </li>
+
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

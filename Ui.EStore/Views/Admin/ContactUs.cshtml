@@ -1,0 +1,124 @@
+﻿@using Domain.EStore
+@{
+   
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section SeoRender{
+
+    <title>أتصل بنا </title>
+}
+
+
+<div class="panel panel-primary" ng-app="aboutUs" ng-controller="aboutUsCtrl">
+    <div class="panel-heading">
+        <div class="page-header">
+            <img src="/Images/menuitem.png" style="width: 20px;" />
+            <span class="label label-default">اتصل بنا</span>
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" id="aboutUsFrm">
+
+
+
+                <div class="form-group">
+                    <label for="ImageUrl" class="col-sm-3 control-label">الصورة</label>
+                    <div class="col-sm-9">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="file" id="ImageUrl" />
+                            </div>
+                            <div class="col-md-3">
+                                <input class="btn btn-default " type="button" id="btnUpload" value=" رفـع " />
+                            </div>
+                            <div class="col-md-3">
+                                <img style="width: 80px" ng-src={{ImageUrl}} id="imgUserImage" class="img-rounded" alt="Upload Image">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="txt_Title" class="col-sm-3 control-label">العنوان</label>
+                    <div class="col-sm-4">
+                        <input id="txt_Title" ng-model="title" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder=" ">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="txt_TitleEn" class="col-sm-3 control-label"> العنوان بالانجيزية</label>
+                    <div class="col-sm-4">
+                        <input id="txt_TitleEn" ng-model="titleEn" maxlength="255" dir="rtl" type="text" data-validate="required" data-validate-type="required" class="form-control" placeholder=" ">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txt_Berif" class="col-sm-3 control-label">النبذة</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_Berif" dir="rtl" data-validate="required" data-validate-type="required" ng-model="berif" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_BerifEn" class="col-sm-3 control-label">النبذة بالانجليزية</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_BerifEn" dir="rtl" data-validate="required" data-validate-type="required" ng-model="berifEn" class="form-control"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="txt_Details" class="col-sm-3 control-label">التفاصيل</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_Details" dir="rtl" data-validate="required" data-validate-type="required" ng-model="details" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txt_DetailsEn" class="col-sm-3 control-label">التفاصيل بالانجليزية</label>
+                    <div class="col-sm-9">
+                        <textarea id="txt_DetailsEn" dir="rtl" data-validate="required" data-validate-type="required" ng-model="detailsEn" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" id="btnSave" ng-click="Save()" class="btn btn-default">حفظ</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="divWarning" class="col-sm-offset-3 col-sm-9 alert alert-danger invisible"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="div_Script">
+
+    <script src="~/Scripts/Controllers/ContactUsCtrl.js"></script>
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#txt_Berif').ckeditor();
+            $('#txt_Details').ckeditor();
+            $('#txt_BerifEn').ckeditor();
+            $('#txt_DetailsEn').ckeditor();
+        });
+
+        $("#btnUpload").click(function (evt) {
+            UploadScript.uploadFile(evt, 'ImageUrl', '#imgUserImage');
+        });
+
+    </script>
+
+
+
+
+
+</div>

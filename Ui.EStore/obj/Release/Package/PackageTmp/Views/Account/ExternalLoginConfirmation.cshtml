@@ -1,0 +1,47 @@
+﻿@model Ui.EStore.Models.RegisterExternalLoginModel
+@{
+    ViewBag.Title = "تسجيل";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>ربط  @ViewBag.ProviderDisplayName بحسابك</h2>
+</hgroup>
+
+@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>تسجيل بياناتك</legend>
+        <p>
+           تم تسجيل دخولك بحساب <strong>@ViewBag.ProviderDisplayName</strong>.
+           نرجو ادخال البيانات التالية لتكملة الحساب
+        </p>
+        <ol>
+            <li class="name">
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+
+            <li class="row">
+                <label> @Html.LabelFor(m => m.Email)</label>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </li>
+         
+            <li class="row">
+                <label> @Html.LabelFor(m => m.Phone)</label>
+                @Html.TextBoxFor(m => m.Phone)
+            </li>
+            <li class="row">
+                <label> @Html.LabelFor(m => m.Address)</label>
+                @Html.TextBoxFor(m => m.Address)
+            </li>
+        </ol>
+        @Html.HiddenFor(m => m.ExternalLoginData)
+        <input type="submit" value="تسجيل" />
+    </fieldset>
+}
+

@@ -1,0 +1,64 @@
+﻿@using Domain.EStore
+@using Ui.EStore.Controllers
+@using Ui.EStore.Helpers
+
+@{
+     
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section SeoRender{
+    <title>الاسئلة الشائعة</title>
+}
+<div class="page-container-wrap">
+    <div id="breadcrumb" style="padding: 12px 10px 8px 10px;" style="padding: 12px 10px 8px 10px;">
+        <span></span>@*/@ViewBag.product.MainCategoryId-@ViewBag.MainCategory*@
+        <a href="/Home"> @CultureHelper.GetUserLanguageValue("عام", "الصفحة الرئيسية") </a><span class="span"></span><a href="/Home/FAQ/">@CultureHelper.GetUserLanguageValue("عام", "الاسئلة الشائعة")</a>
+
+    </div>
+
+    <ul id="faq">
+        @{
+            List<FAQ> faqs = AdminController.GetFAQsView();
+            foreach (var faq in faqs)
+            {
+                <li>
+                    @{
+                        if (CultureHelper.GetLang() == Enums.Lang.Ar)
+                        {
+                            <a class="title" href="#">@faq.FAQTitle   </a>
+
+
+
+                            <div class="tog">
+                                @Html.Raw(faq.FAQDetails)
+                            </div>
+
+                        }
+                        else
+                        {
+                            <a class="title" href="#">@faq.FAQTitleEn   </a>
+
+
+
+                            <div class="tog">
+                                @Html.Raw(faq.FAQDetailsEn)
+                            </div>
+                        }
+                    }
+                        </li>
+            }
+        }
+
+    </ul>
+    <script>
+        $(".tog").hide();
+        $(".title").click(function () {
+
+            $(this).next().slideToggle();
+
+
+        });
+    </script>
+
+</div>

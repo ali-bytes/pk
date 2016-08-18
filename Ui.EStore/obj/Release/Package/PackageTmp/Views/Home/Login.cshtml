@@ -1,0 +1,38 @@
+﻿@model Domain.EStore.Customer
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+   
+    
+    <div class="register">
+        <h2>سجل دخولك</h2>
+        <div class="facebook">
+            <section class="social" id="socialLoginForm">
+                <h2>Use another service to log in.</h2>
+                @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+
+        </div>
+        <form>
+            @Html.ValidationSummary()
+            <div class="row"><label>البريد االكترونى : </label>
+                @Html.TextBoxFor(u => u.Email, new { Name ="name"} )
+                @*@Html.ValidationMessageFor(u => u.Email)*@
+                @*<input type="text" name="name" />*@
+            </div>
+            <div class="row"><label>كلمة المرور : </label>
+                @Html.PasswordFor(u => u.Password, new { Name = "password" })
+                @*@Html.ValidationMessageFor(u => u.Password)*@
+                @* <input type="text" name="password" />*@
+            </div>
+            <div class="row">
+                <input type="submit" name="submit" value="تسجيل" />
+            </div>
+          
+        </form>
+    </div>
+}
